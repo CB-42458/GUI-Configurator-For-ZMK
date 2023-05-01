@@ -1,0 +1,3 @@
+kivy
+json5
+wxPython
