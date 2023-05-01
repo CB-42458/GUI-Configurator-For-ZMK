@@ -1,0 +1,18 @@
+{
+  "BT_CLR": {
+    "description": "Clear Bluetooth for selected profile",
+    "context": "Bluetooth"
+  },
+  "BT_NXT": {
+    "description": "Next Bluetooth profile",
+    "context": "Bluetooth"
+  },
+  "BT_PRV": {
+    "description": "Previous Bluetooth profile",
+    "context": "Bluetooth"
+  },
+  "BT_SEL(xx)": {
+    "description": "Select Bluetooth profile",
+    "context": "Bluetooth"
+  }
+}

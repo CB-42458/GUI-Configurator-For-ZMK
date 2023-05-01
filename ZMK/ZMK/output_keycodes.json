@@ -1,0 +1,14 @@
+{
+  "OUT_USB": {
+    "description": "USB output",
+    "context": "Output Selection"
+  },
+  "OUT_BLE": {
+    "description": "Bluetooth output",
+    "context": "Output Selection"
+  },
+  "OUT_TOG": {
+    "description": "Toggle between USB and Bluetooth",
+    "context": "Output Selection"
+  }
+}

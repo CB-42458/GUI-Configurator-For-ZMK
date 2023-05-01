@@ -1,0 +1,287 @@
+[
+    {
+        "directory_name": "a_dux",
+        "name": "A. Dux",
+        "id": "a_dux"
+    },
+    {
+        "directory_name": "bat43",
+        "name": "BAT43",
+        "id": "bat43"
+    },
+    {
+        "directory_name": "bfo9000",
+        "name": "BFO-9000",
+        "id": "bfo9000"
+    },
+    {
+        "directory_name": "boardsource3x4",
+        "name": "Boardsource 3x4 Macropad",
+        "id": "boardsource3x4"
+    },
+    {
+        "directory_name": "boardsource5x12",
+        "name": "Boardsource 5x12",
+        "id": "boardsource5x12"
+    },
+    {
+        "directory_name": "chalice",
+        "name": "Chalice",
+        "id": "chalice"
+    },
+    {
+        "directory_name": "clog",
+        "name": "Clog",
+        "id": "clog"
+    },
+    {
+        "directory_name": "contra",
+        "name": "Contra",
+        "id": "contra"
+    },
+    {
+        "directory_name": "corne",
+        "name": "Corne",
+        "id": "corne"
+    },
+    {
+        "directory_name": "cradio",
+        "name": "Cradio/Sweep",
+        "id": "cradio"
+    },
+    {
+        "directory_name": "crbn",
+        "name": "CRBN Featherlight",
+        "id": "crbn"
+    },
+    {
+        "directory_name": "eek",
+        "name": "eek!",
+        "id": "eek"
+    },
+    {
+        "directory_name": "elephant42",
+        "name": "Elephant42",
+        "id": "elephant42"
+    },
+    {
+        "directory_name": "ergodash",
+        "name": "Ergodash",
+        "id": "ergodash"
+    },
+    {
+        "directory_name": "eternal_keypad",
+        "name": "Eternal Keypad",
+        "id": "eternal_keypad"
+    },
+    {
+        "directory_name": "eternal_keypad",
+        "name": "Eternal Keypad Lefty",
+        "id": "eternal_keypad_lefty"
+    },
+    {
+        "directory_name": "fourier",
+        "name": "Fourier Rev. 1",
+        "id": "fourier"
+    },
+    {
+        "directory_name": "helix",
+        "name": "Helix",
+        "id": "helix"
+    },
+    {
+        "directory_name": "hummingbird",
+        "name": "Hummingbird",
+        "id": "hummingbird"
+    },
+    {
+        "directory_name": "iris",
+        "name": "Iris",
+        "id": "iris"
+    },
+    {
+        "directory_name": "jian",
+        "name": "Jian",
+        "id": "jian"
+    },
+    {
+        "directory_name": "jiran",
+        "name": "Jiran",
+        "id": "jiran"
+    },
+    {
+        "directory_name": "jorne",
+        "name": "Jorne",
+        "id": "jorne"
+    },
+    {
+        "directory_name": "knob_goblin",
+        "name": "Knob Goblin",
+        "id": "knob_goblin"
+    },
+    {
+        "directory_name": "kyria",
+        "name": "Kyria",
+        "id": "kyria"
+    },
+    {
+        "directory_name": "kyria",
+        "name": "Kyria Rev2",
+        "id": "kyria_rev2"
+    },
+    {
+        "directory_name": "leeloo",
+        "name": "Leeloo",
+        "id": "leeloo"
+    },
+    {
+        "directory_name": "lily58",
+        "name": "Lily58",
+        "id": "lily58"
+    },
+    {
+        "directory_name": "lotus58",
+        "name": "Lotus58",
+        "id": "lotus58"
+    },
+    {
+        "directory_name": "m60",
+        "name": "MakerDiary m60",
+        "id": "m60"
+    },
+    {
+        "directory_name": "microdox",
+        "name": "Microdox",
+        "id": "microdox"
+    },
+    {
+        "directory_name": "murphpad",
+        "name": "MurphPad",
+        "id": "murphpad"
+    },
+    {
+        "directory_name": "naked60",
+        "name": "Naked60",
+        "id": "naked60"
+    },
+    {
+        "directory_name": "nibble",
+        "name": "Nibble",
+        "id": "nibble"
+    },
+    {
+        "directory_name": "nice_view",
+        "name": "nice!view",
+        "id": "nice_view"
+    },
+    {
+        "directory_name": "nice_view_adapter",
+        "name": "nice!view adapter",
+        "id": "nice_view_adapter"
+    },
+    {
+        "directory_name": "osprette",
+        "name": "Osprette",
+        "id": "osprette"
+    },
+    {
+        "directory_name": "pancake",
+        "name": "Pancake",
+        "id": "pancake"
+    },
+    {
+        "directory_name": "qaz",
+        "name": "QAZ",
+        "id": "qaz"
+    },
+    {
+        "directory_name": "quefrency",
+        "name": "Quefrency Rev. 1",
+        "id": "quefrency"
+    },
+    {
+        "directory_name": "redox",
+        "name": "Redox",
+        "id": "redox"
+    },
+    {
+        "directory_name": "reviung41",
+        "name": "REVIUNG41",
+        "id": "reviung41"
+    },
+    {
+        "directory_name": "reviung5",
+        "name": "REVIUNG5",
+        "id": "reviung5"
+    },
+    {
+        "directory_name": "romac",
+        "name": "Romac Macropad",
+        "id": "romac"
+    },
+    {
+        "directory_name": "romac_plus",
+        "name": "Romac+ Macropad",
+        "id": "romac_plus"
+    },
+    {
+        "directory_name": "snap",
+        "name": "SNAP",
+        "id": "snap"
+    },
+    {
+        "directory_name": "sofle",
+        "name": "Sofle",
+        "id": "sofle"
+    },
+    {
+        "directory_name": "splitkb_aurora_corne",
+        "name": "splitkb.com Aurora Corne",
+        "id": "splitkb_aurora_corne"
+    },
+    {
+        "directory_name": "splitkb_aurora_lily58",
+        "name": "splitkb.com Aurora Lily58",
+        "id": "splitkb_aurora_lily58"
+    },
+    {
+        "directory_name": "splitkb_aurora_sweep",
+        "name": "splitkb.com Aurora Sweep",
+        "id": "splitkb_aurora_sweep"
+    },
+    {
+        "directory_name": "splitreus62",
+        "name": "Splitreus62",
+        "id": "splitreus62"
+    },
+    {
+        "directory_name": "tg4x",
+        "name": "TG4x",
+        "id": "tg4x"
+    },
+    {
+        "directory_name": "tidbit",
+        "name": "Tidbit Numpad",
+        "id": "tidbit"
+    },
+    {
+        "directory_name": "two_percent_milk",
+        "name": "2% Milk",
+        "id": "two_percent_milk"
+    },
+    {
+        "directory_name": "waterfowl",
+        "name": "Waterfowl",
+        "id": "waterfowl"
+    },
+    {
+        "directory_name": "zmk_uno",
+        "name": "ZMK Uno",
+        "id": "zmk_uno"
+    },
+    {
+        "directory_name": "zodiark",
+        "name": "Zodiark",
+        "id": "zodiark"
+    }
+]

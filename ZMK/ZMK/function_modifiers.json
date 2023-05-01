@@ -1,0 +1,34 @@
+{
+  "LC(xx)": {
+    "description": "Left Control",
+    "context": "Modifier"
+  },
+  "LS(xx)": {
+    "description": "Left Shift \u21e7",
+    "context": "Modifier"
+  },
+  "LA(xx)": {
+    "description": "Left Alt",
+    "context": "Modifier"
+  },
+  "LG(xx)": {
+    "description": "Left GUI",
+    "context": "Modifier"
+  },
+  "RC(xx)": {
+    "description": "Right Control",
+    "context": "Modifier"
+  },
+  "RS(xx)": {
+    "description": "Right Shift \u21e7",
+    "context": "Modifier"
+  },
+  "RA(xx)": {
+    "description": "Right Alt",
+    "context": "Modifier"
+  },
+  "RG(xx)": {
+    "description": "Right GUI",
+    "context": "Modifier"
+  }
+}
