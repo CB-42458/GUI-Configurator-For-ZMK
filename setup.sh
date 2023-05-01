@@ -3,6 +3,7 @@
 # It will install all three of the custom packages in the project
 # As well as the libraries which are found in the requirements.txt file
 # If you are using a virtual environment, make sure you are in the virtual environment before running this file
+# I have not tested this file, so milage may vary.
 pip install -r requirements.txt
 # Install the List Union package
 cd ./ListUnion
