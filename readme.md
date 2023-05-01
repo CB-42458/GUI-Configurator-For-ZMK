@@ -5,4 +5,4 @@
 ### To run:
 - run `Application/main.py`
 ### Docs:
-- Documentation of the project files can be found in the docs folder
+- Documentation of the project can be found at https://cb-42458.github.io/GUI-Configurator-For-ZMK/ or in the docs folder.
