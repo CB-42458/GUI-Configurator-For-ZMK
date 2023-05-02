@@ -124,68 +124,68 @@
 </span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a><span class="sd">            &#39;value&#39;: (any) current value of the property</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="sd">        }</span>
 </span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>
-</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="k">def</span> <span class="nf">check_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">        This method will check if the value is valid for the property</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">        @param zmk_config: ZMKConfig is required as it checks the config against this property</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">        @param property_name: name of the property to check</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">        @param value: value to check, if it is None then it will check the current value of the property</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="sd">        @return: True if the config is valid, False otherwise.</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>
-</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>    <span class="k">def</span> <span class="nf">set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a><span class="sd">        this method will pass the parameters to check_property to see if</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="sd">        they are valid, if they are valid then it will be set</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">        @param zmk_config: ZMKConfig is required and passed onto check_property method</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a><span class="sd">                           so that it can check the config against the property</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a><span class="sd">        @param property_name: name of the property to set</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a><span class="sd">        @param value: value of the property to set</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>
-</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_property</span><span class="p">(</span><span class="n">zmk_config</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_property</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">):</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>                <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>                    <span class="k">break</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>
-</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="sd">        @return: list of dictionaries containing the properties</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>    <span class="k">def</span> <span class="nf">get_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="sd">        @param property_name: name of the property to get</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">        @return: dictionary containing the property</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>        <span class="k">for</span> <span class="n">_property</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>            <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>                <span class="k">return</span> <span class="n">_property</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>        <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Property </span><span class="si">{</span><span class="n">property_name</span><span class="si">}</span><span class="s1"> is not a property of this driver&#39;</span><span class="p">)</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">        Method will return a dictionary containing the necessary bits of code at the right parts of the code</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>
-</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>        <span class="k">pass</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">        this method will return a dictionary containing the values of the driver&#39;s</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">        properties so that it can be exported to a json file</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Refer to __init__ docstring&quot;&quot;&quot;</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>    <span class="k">def</span> <span class="nf">check_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">        This method will check if the value is valid for the property</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">        @param zmk_config: ZMKConfig is required as it checks the config against this property</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a><span class="sd">        @param property_name: name of the property to check</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="sd">        @param value: value to check, if it is None then it will check the current value of the property</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="sd">        @return: True if the config is valid, False otherwise.</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>    <span class="k">def</span> <span class="nf">set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="sd">        this method will pass the parameters to check_property to see if</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">        they are valid, if they are valid then it will be set</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a><span class="sd">        @param zmk_config: ZMKConfig is required and passed onto check_property method so that it can check the config</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a><span class="sd">        against the property</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a><span class="sd">        @param property_name: name of the property to set</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a><span class="sd">        @param value: value of the property to set</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_property</span><span class="p">(</span><span class="n">zmk_config</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_property</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">):</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>                <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>                    <span class="k">break</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="sd">        @return: list of dictionaries containing the properties</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>    <span class="k">def</span> <span class="nf">get_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">        @param property_name: name of the property to get</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">        @return: dictionary containing the property</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>        <span class="k">for</span> <span class="n">_property</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>            <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>                <span class="k">return</span> <span class="n">_property</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>        <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Property </span><span class="si">{</span><span class="n">property_name</span><span class="si">}</span><span class="s1"> is not a property of this driver&#39;</span><span class="p">)</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Method will return a dictionary containing the necessary bits of code at the right parts of the code&quot;&quot;&quot;</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>        <span class="k">pass</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">        this method will return a dictionary containing the values of the driver&#39;s</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">        properties so that it can be exported to a json file</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">        @return: dictionary containing the properties of the driver</span>
 </span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
 </span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>        <span class="p">}</span>
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
@@ -207,7 +207,7 @@
 </span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a><span class="sd">        config options or they are options which just complicate the process for my target end user.</span>
 </span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span> <span class="o">=</span> <span class="p">[</span>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;row-gpios&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
 </span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;col-gpios&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
 </span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;diode-direction&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
@@ -219,8 +219,7 @@
 </span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>        <span class="c1"># aside from error checking to see if the types are correct</span>
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>
-</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>        <span class="c1"># label:</span>
-</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>        <span class="c1"># - lower</span>
+</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -252,68 +251,68 @@
 </span><span id="AbstractDriver-29"><a href="#AbstractDriver-29"><span class="linenos"> 29</span></a><span class="sd">            &#39;value&#39;: (any) current value of the property</span>
 </span><span id="AbstractDriver-30"><a href="#AbstractDriver-30"><span class="linenos"> 30</span></a><span class="sd">        }</span>
 </span><span id="AbstractDriver-31"><a href="#AbstractDriver-31"><span class="linenos"> 31</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-32"><a href="#AbstractDriver-32"><span class="linenos"> 32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="AbstractDriver-33"><a href="#AbstractDriver-33"><span class="linenos"> 33</span></a>
-</span><span id="AbstractDriver-34"><a href="#AbstractDriver-34"><span class="linenos"> 34</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="AbstractDriver-35"><a href="#AbstractDriver-35"><span class="linenos"> 35</span></a>    <span class="k">def</span> <span class="nf">check_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="AbstractDriver-36"><a href="#AbstractDriver-36"><span class="linenos"> 36</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-37"><a href="#AbstractDriver-37"><span class="linenos"> 37</span></a><span class="sd">        This method will check if the value is valid for the property</span>
-</span><span id="AbstractDriver-38"><a href="#AbstractDriver-38"><span class="linenos"> 38</span></a><span class="sd">        @param zmk_config: ZMKConfig is required as it checks the config against this property</span>
-</span><span id="AbstractDriver-39"><a href="#AbstractDriver-39"><span class="linenos"> 39</span></a><span class="sd">        @param property_name: name of the property to check</span>
-</span><span id="AbstractDriver-40"><a href="#AbstractDriver-40"><span class="linenos"> 40</span></a><span class="sd">        @param value: value to check, if it is None then it will check the current value of the property</span>
-</span><span id="AbstractDriver-41"><a href="#AbstractDriver-41"><span class="linenos"> 41</span></a>
-</span><span id="AbstractDriver-42"><a href="#AbstractDriver-42"><span class="linenos"> 42</span></a><span class="sd">        @return: True if the config is valid, False otherwise.</span>
-</span><span id="AbstractDriver-43"><a href="#AbstractDriver-43"><span class="linenos"> 43</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-44"><a href="#AbstractDriver-44"><span class="linenos"> 44</span></a>
-</span><span id="AbstractDriver-45"><a href="#AbstractDriver-45"><span class="linenos"> 45</span></a>    <span class="k">def</span> <span class="nf">set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="AbstractDriver-46"><a href="#AbstractDriver-46"><span class="linenos"> 46</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-47"><a href="#AbstractDriver-47"><span class="linenos"> 47</span></a><span class="sd">        this method will pass the parameters to check_property to see if</span>
-</span><span id="AbstractDriver-48"><a href="#AbstractDriver-48"><span class="linenos"> 48</span></a><span class="sd">        they are valid, if they are valid then it will be set</span>
-</span><span id="AbstractDriver-49"><a href="#AbstractDriver-49"><span class="linenos"> 49</span></a><span class="sd">        @param zmk_config: ZMKConfig is required and passed onto check_property method</span>
-</span><span id="AbstractDriver-50"><a href="#AbstractDriver-50"><span class="linenos"> 50</span></a><span class="sd">                           so that it can check the config against the property</span>
-</span><span id="AbstractDriver-51"><a href="#AbstractDriver-51"><span class="linenos"> 51</span></a><span class="sd">        @param property_name: name of the property to set</span>
-</span><span id="AbstractDriver-52"><a href="#AbstractDriver-52"><span class="linenos"> 52</span></a><span class="sd">        @param value: value of the property to set</span>
-</span><span id="AbstractDriver-53"><a href="#AbstractDriver-53"><span class="linenos"> 53</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-54"><a href="#AbstractDriver-54"><span class="linenos"> 54</span></a>
-</span><span id="AbstractDriver-55"><a href="#AbstractDriver-55"><span class="linenos"> 55</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_property</span><span class="p">(</span><span class="n">zmk_config</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="AbstractDriver-56"><a href="#AbstractDriver-56"><span class="linenos"> 56</span></a>            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_property</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">):</span>
-</span><span id="AbstractDriver-57"><a href="#AbstractDriver-57"><span class="linenos"> 57</span></a>                <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
-</span><span id="AbstractDriver-58"><a href="#AbstractDriver-58"><span class="linenos"> 58</span></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="AbstractDriver-59"><a href="#AbstractDriver-59"><span class="linenos"> 59</span></a>                    <span class="k">break</span>
-</span><span id="AbstractDriver-60"><a href="#AbstractDriver-60"><span class="linenos"> 60</span></a>
-</span><span id="AbstractDriver-61"><a href="#AbstractDriver-61"><span class="linenos"> 61</span></a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="AbstractDriver-62"><a href="#AbstractDriver-62"><span class="linenos"> 62</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-63"><a href="#AbstractDriver-63"><span class="linenos"> 63</span></a><span class="sd">        @return: list of dictionaries containing the properties</span>
-</span><span id="AbstractDriver-64"><a href="#AbstractDriver-64"><span class="linenos"> 64</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-65"><a href="#AbstractDriver-65"><span class="linenos"> 65</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span>
-</span><span id="AbstractDriver-66"><a href="#AbstractDriver-66"><span class="linenos"> 66</span></a>
-</span><span id="AbstractDriver-67"><a href="#AbstractDriver-67"><span class="linenos"> 67</span></a>    <span class="k">def</span> <span class="nf">get_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="AbstractDriver-68"><a href="#AbstractDriver-68"><span class="linenos"> 68</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-69"><a href="#AbstractDriver-69"><span class="linenos"> 69</span></a><span class="sd">        @param property_name: name of the property to get</span>
-</span><span id="AbstractDriver-70"><a href="#AbstractDriver-70"><span class="linenos"> 70</span></a><span class="sd">        @return: dictionary containing the property</span>
-</span><span id="AbstractDriver-71"><a href="#AbstractDriver-71"><span class="linenos"> 71</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-72"><a href="#AbstractDriver-72"><span class="linenos"> 72</span></a>        <span class="k">for</span> <span class="n">_property</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span>
-</span><span id="AbstractDriver-73"><a href="#AbstractDriver-73"><span class="linenos"> 73</span></a>            <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
-</span><span id="AbstractDriver-74"><a href="#AbstractDriver-74"><span class="linenos"> 74</span></a>                <span class="k">return</span> <span class="n">_property</span>
-</span><span id="AbstractDriver-75"><a href="#AbstractDriver-75"><span class="linenos"> 75</span></a>        <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Property </span><span class="si">{</span><span class="n">property_name</span><span class="si">}</span><span class="s1"> is not a property of this driver&#39;</span><span class="p">)</span>
-</span><span id="AbstractDriver-76"><a href="#AbstractDriver-76"><span class="linenos"> 76</span></a>
-</span><span id="AbstractDriver-77"><a href="#AbstractDriver-77"><span class="linenos"> 77</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="AbstractDriver-78"><a href="#AbstractDriver-78"><span class="linenos"> 78</span></a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="AbstractDriver-79"><a href="#AbstractDriver-79"><span class="linenos"> 79</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-80"><a href="#AbstractDriver-80"><span class="linenos"> 80</span></a><span class="sd">        Method will return a dictionary containing the necessary bits of code at the right parts of the code</span>
-</span><span id="AbstractDriver-81"><a href="#AbstractDriver-81"><span class="linenos"> 81</span></a>
-</span><span id="AbstractDriver-82"><a href="#AbstractDriver-82"><span class="linenos"> 82</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-83"><a href="#AbstractDriver-83"><span class="linenos"> 83</span></a>        <span class="k">pass</span>
-</span><span id="AbstractDriver-84"><a href="#AbstractDriver-84"><span class="linenos"> 84</span></a>
-</span><span id="AbstractDriver-85"><a href="#AbstractDriver-85"><span class="linenos"> 85</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="AbstractDriver-86"><a href="#AbstractDriver-86"><span class="linenos"> 86</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="AbstractDriver-87"><a href="#AbstractDriver-87"><span class="linenos"> 87</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver-88"><a href="#AbstractDriver-88"><span class="linenos"> 88</span></a><span class="sd">        this method will return a dictionary containing the values of the driver&#39;s</span>
-</span><span id="AbstractDriver-89"><a href="#AbstractDriver-89"><span class="linenos"> 89</span></a><span class="sd">        properties so that it can be exported to a json file</span>
+</span><span id="AbstractDriver-32"><a href="#AbstractDriver-32"><span class="linenos"> 32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="AbstractDriver-33"><a href="#AbstractDriver-33"><span class="linenos"> 33</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Refer to __init__ docstring&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-34"><a href="#AbstractDriver-34"><span class="linenos"> 34</span></a>
+</span><span id="AbstractDriver-35"><a href="#AbstractDriver-35"><span class="linenos"> 35</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="AbstractDriver-36"><a href="#AbstractDriver-36"><span class="linenos"> 36</span></a>    <span class="k">def</span> <span class="nf">check_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="AbstractDriver-37"><a href="#AbstractDriver-37"><span class="linenos"> 37</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-38"><a href="#AbstractDriver-38"><span class="linenos"> 38</span></a><span class="sd">        This method will check if the value is valid for the property</span>
+</span><span id="AbstractDriver-39"><a href="#AbstractDriver-39"><span class="linenos"> 39</span></a>
+</span><span id="AbstractDriver-40"><a href="#AbstractDriver-40"><span class="linenos"> 40</span></a><span class="sd">        @param zmk_config: ZMKConfig is required as it checks the config against this property</span>
+</span><span id="AbstractDriver-41"><a href="#AbstractDriver-41"><span class="linenos"> 41</span></a><span class="sd">        @param property_name: name of the property to check</span>
+</span><span id="AbstractDriver-42"><a href="#AbstractDriver-42"><span class="linenos"> 42</span></a><span class="sd">        @param value: value to check, if it is None then it will check the current value of the property</span>
+</span><span id="AbstractDriver-43"><a href="#AbstractDriver-43"><span class="linenos"> 43</span></a><span class="sd">        @return: True if the config is valid, False otherwise.</span>
+</span><span id="AbstractDriver-44"><a href="#AbstractDriver-44"><span class="linenos"> 44</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-45"><a href="#AbstractDriver-45"><span class="linenos"> 45</span></a>
+</span><span id="AbstractDriver-46"><a href="#AbstractDriver-46"><span class="linenos"> 46</span></a>    <span class="k">def</span> <span class="nf">set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="AbstractDriver-47"><a href="#AbstractDriver-47"><span class="linenos"> 47</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-48"><a href="#AbstractDriver-48"><span class="linenos"> 48</span></a><span class="sd">        this method will pass the parameters to check_property to see if</span>
+</span><span id="AbstractDriver-49"><a href="#AbstractDriver-49"><span class="linenos"> 49</span></a><span class="sd">        they are valid, if they are valid then it will be set</span>
+</span><span id="AbstractDriver-50"><a href="#AbstractDriver-50"><span class="linenos"> 50</span></a>
+</span><span id="AbstractDriver-51"><a href="#AbstractDriver-51"><span class="linenos"> 51</span></a><span class="sd">        @param zmk_config: ZMKConfig is required and passed onto check_property method so that it can check the config</span>
+</span><span id="AbstractDriver-52"><a href="#AbstractDriver-52"><span class="linenos"> 52</span></a><span class="sd">        against the property</span>
+</span><span id="AbstractDriver-53"><a href="#AbstractDriver-53"><span class="linenos"> 53</span></a><span class="sd">        @param property_name: name of the property to set</span>
+</span><span id="AbstractDriver-54"><a href="#AbstractDriver-54"><span class="linenos"> 54</span></a><span class="sd">        @param value: value of the property to set</span>
+</span><span id="AbstractDriver-55"><a href="#AbstractDriver-55"><span class="linenos"> 55</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-56"><a href="#AbstractDriver-56"><span class="linenos"> 56</span></a>
+</span><span id="AbstractDriver-57"><a href="#AbstractDriver-57"><span class="linenos"> 57</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_property</span><span class="p">(</span><span class="n">zmk_config</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="AbstractDriver-58"><a href="#AbstractDriver-58"><span class="linenos"> 58</span></a>            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_property</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">):</span>
+</span><span id="AbstractDriver-59"><a href="#AbstractDriver-59"><span class="linenos"> 59</span></a>                <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
+</span><span id="AbstractDriver-60"><a href="#AbstractDriver-60"><span class="linenos"> 60</span></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="AbstractDriver-61"><a href="#AbstractDriver-61"><span class="linenos"> 61</span></a>                    <span class="k">break</span>
+</span><span id="AbstractDriver-62"><a href="#AbstractDriver-62"><span class="linenos"> 62</span></a>
+</span><span id="AbstractDriver-63"><a href="#AbstractDriver-63"><span class="linenos"> 63</span></a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+</span><span id="AbstractDriver-64"><a href="#AbstractDriver-64"><span class="linenos"> 64</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-65"><a href="#AbstractDriver-65"><span class="linenos"> 65</span></a><span class="sd">        @return: list of dictionaries containing the properties</span>
+</span><span id="AbstractDriver-66"><a href="#AbstractDriver-66"><span class="linenos"> 66</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-67"><a href="#AbstractDriver-67"><span class="linenos"> 67</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
+</span><span id="AbstractDriver-68"><a href="#AbstractDriver-68"><span class="linenos"> 68</span></a>
+</span><span id="AbstractDriver-69"><a href="#AbstractDriver-69"><span class="linenos"> 69</span></a>    <span class="k">def</span> <span class="nf">get_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="AbstractDriver-70"><a href="#AbstractDriver-70"><span class="linenos"> 70</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-71"><a href="#AbstractDriver-71"><span class="linenos"> 71</span></a><span class="sd">        @param property_name: name of the property to get</span>
+</span><span id="AbstractDriver-72"><a href="#AbstractDriver-72"><span class="linenos"> 72</span></a><span class="sd">        @return: dictionary containing the property</span>
+</span><span id="AbstractDriver-73"><a href="#AbstractDriver-73"><span class="linenos"> 73</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-74"><a href="#AbstractDriver-74"><span class="linenos"> 74</span></a>        <span class="k">for</span> <span class="n">_property</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span>
+</span><span id="AbstractDriver-75"><a href="#AbstractDriver-75"><span class="linenos"> 75</span></a>            <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
+</span><span id="AbstractDriver-76"><a href="#AbstractDriver-76"><span class="linenos"> 76</span></a>                <span class="k">return</span> <span class="n">_property</span>
+</span><span id="AbstractDriver-77"><a href="#AbstractDriver-77"><span class="linenos"> 77</span></a>        <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Property </span><span class="si">{</span><span class="n">property_name</span><span class="si">}</span><span class="s1"> is not a property of this driver&#39;</span><span class="p">)</span>
+</span><span id="AbstractDriver-78"><a href="#AbstractDriver-78"><span class="linenos"> 78</span></a>
+</span><span id="AbstractDriver-79"><a href="#AbstractDriver-79"><span class="linenos"> 79</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="AbstractDriver-80"><a href="#AbstractDriver-80"><span class="linenos"> 80</span></a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="AbstractDriver-81"><a href="#AbstractDriver-81"><span class="linenos"> 81</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Method will return a dictionary containing the necessary bits of code at the right parts of the code&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-82"><a href="#AbstractDriver-82"><span class="linenos"> 82</span></a>        <span class="k">pass</span>
+</span><span id="AbstractDriver-83"><a href="#AbstractDriver-83"><span class="linenos"> 83</span></a>
+</span><span id="AbstractDriver-84"><a href="#AbstractDriver-84"><span class="linenos"> 84</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="AbstractDriver-85"><a href="#AbstractDriver-85"><span class="linenos"> 85</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="AbstractDriver-86"><a href="#AbstractDriver-86"><span class="linenos"> 86</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver-87"><a href="#AbstractDriver-87"><span class="linenos"> 87</span></a><span class="sd">        this method will return a dictionary containing the values of the driver&#39;s</span>
+</span><span id="AbstractDriver-88"><a href="#AbstractDriver-88"><span class="linenos"> 88</span></a><span class="sd">        properties so that it can be exported to a json file</span>
+</span><span id="AbstractDriver-89"><a href="#AbstractDriver-89"><span class="linenos"> 89</span></a>
 </span><span id="AbstractDriver-90"><a href="#AbstractDriver-90"><span class="linenos"> 90</span></a><span class="sd">        @return: dictionary containing the properties of the driver</span>
 </span><span id="AbstractDriver-91"><a href="#AbstractDriver-91"><span class="linenos"> 91</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="AbstractDriver-92"><a href="#AbstractDriver-92"><span class="linenos"> 92</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="AbstractDriver-93"><a href="#AbstractDriver-93"><span class="linenos"> 93</span></a>            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span>
+</span><span id="AbstractDriver-93"><a href="#AbstractDriver-93"><span class="linenos"> 93</span></a>            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
 </span><span id="AbstractDriver-94"><a href="#AbstractDriver-94"><span class="linenos"> 94</span></a>        <span class="p">}</span>
 </span><span id="AbstractDriver-95"><a href="#AbstractDriver-95"><span class="linenos"> 95</span></a>
 </span><span id="AbstractDriver-96"><a href="#AbstractDriver-96"><span class="linenos"> 96</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
@@ -350,7 +349,8 @@ build it into the files</p>
 </span><span id="AbstractDriver.__init__-29"><a href="#AbstractDriver.__init__-29"><span class="linenos">29</span></a><span class="sd">            &#39;value&#39;: (any) current value of the property</span>
 </span><span id="AbstractDriver.__init__-30"><a href="#AbstractDriver.__init__-30"><span class="linenos">30</span></a><span class="sd">        }</span>
 </span><span id="AbstractDriver.__init__-31"><a href="#AbstractDriver.__init__-31"><span class="linenos">31</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.__init__-32"><a href="#AbstractDriver.__init__-32"><span class="linenos">32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="AbstractDriver.__init__-32"><a href="#AbstractDriver.__init__-32"><span class="linenos">32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="AbstractDriver.__init__-33"><a href="#AbstractDriver.__init__-33"><span class="linenos">33</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Refer to __init__ docstring&quot;&quot;&quot;</span>
 </span></pre></div>
 
 
@@ -376,25 +376,25 @@ build it into the files</p>
 
     </div>
     <a class="headerlink" href="#AbstractDriver.check_property"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.check_property-34"><a href="#AbstractDriver.check_property-34"><span class="linenos">34</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="AbstractDriver.check_property-35"><a href="#AbstractDriver.check_property-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">check_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="AbstractDriver.check_property-36"><a href="#AbstractDriver.check_property-36"><span class="linenos">36</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.check_property-37"><a href="#AbstractDriver.check_property-37"><span class="linenos">37</span></a><span class="sd">        This method will check if the value is valid for the property</span>
-</span><span id="AbstractDriver.check_property-38"><a href="#AbstractDriver.check_property-38"><span class="linenos">38</span></a><span class="sd">        @param zmk_config: ZMKConfig is required as it checks the config against this property</span>
-</span><span id="AbstractDriver.check_property-39"><a href="#AbstractDriver.check_property-39"><span class="linenos">39</span></a><span class="sd">        @param property_name: name of the property to check</span>
-</span><span id="AbstractDriver.check_property-40"><a href="#AbstractDriver.check_property-40"><span class="linenos">40</span></a><span class="sd">        @param value: value to check, if it is None then it will check the current value of the property</span>
-</span><span id="AbstractDriver.check_property-41"><a href="#AbstractDriver.check_property-41"><span class="linenos">41</span></a>
-</span><span id="AbstractDriver.check_property-42"><a href="#AbstractDriver.check_property-42"><span class="linenos">42</span></a><span class="sd">        @return: True if the config is valid, False otherwise.</span>
-</span><span id="AbstractDriver.check_property-43"><a href="#AbstractDriver.check_property-43"><span class="linenos">43</span></a><span class="sd">        &quot;&quot;&quot;</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.check_property-35"><a href="#AbstractDriver.check_property-35"><span class="linenos">35</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="AbstractDriver.check_property-36"><a href="#AbstractDriver.check_property-36"><span class="linenos">36</span></a>    <span class="k">def</span> <span class="nf">check_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="AbstractDriver.check_property-37"><a href="#AbstractDriver.check_property-37"><span class="linenos">37</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.check_property-38"><a href="#AbstractDriver.check_property-38"><span class="linenos">38</span></a><span class="sd">        This method will check if the value is valid for the property</span>
+</span><span id="AbstractDriver.check_property-39"><a href="#AbstractDriver.check_property-39"><span class="linenos">39</span></a>
+</span><span id="AbstractDriver.check_property-40"><a href="#AbstractDriver.check_property-40"><span class="linenos">40</span></a><span class="sd">        @param zmk_config: ZMKConfig is required as it checks the config against this property</span>
+</span><span id="AbstractDriver.check_property-41"><a href="#AbstractDriver.check_property-41"><span class="linenos">41</span></a><span class="sd">        @param property_name: name of the property to check</span>
+</span><span id="AbstractDriver.check_property-42"><a href="#AbstractDriver.check_property-42"><span class="linenos">42</span></a><span class="sd">        @param value: value to check, if it is None then it will check the current value of the property</span>
+</span><span id="AbstractDriver.check_property-43"><a href="#AbstractDriver.check_property-43"><span class="linenos">43</span></a><span class="sd">        @return: True if the config is valid, False otherwise.</span>
+</span><span id="AbstractDriver.check_property-44"><a href="#AbstractDriver.check_property-44"><span class="linenos">44</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>This method will check if the value is valid for the property
-@param zmk_config: ZMKConfig is required as it checks the config against this property
-@param property_name: name of the property to check
-@param value: value to check, if it is None then it will check the current value of the property</p>
+            <div class="docstring"><p>This method will check if the value is valid for the property</p>
 
-<p>@return: True if the config is valid, False otherwise.</p>
+<p>@param zmk_config: ZMKConfig is required as it checks the config against this property
+@param property_name: name of the property to check
+@param value: value to check, if it is None then it will check the current value of the property
+@return: True if the config is valid, False otherwise.</p>
 </div>
 
 
@@ -410,28 +410,30 @@ build it into the files</p>
 
     </div>
     <a class="headerlink" href="#AbstractDriver.set_property"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.set_property-45"><a href="#AbstractDriver.set_property-45"><span class="linenos">45</span></a>    <span class="k">def</span> <span class="nf">set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="AbstractDriver.set_property-46"><a href="#AbstractDriver.set_property-46"><span class="linenos">46</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.set_property-47"><a href="#AbstractDriver.set_property-47"><span class="linenos">47</span></a><span class="sd">        this method will pass the parameters to check_property to see if</span>
-</span><span id="AbstractDriver.set_property-48"><a href="#AbstractDriver.set_property-48"><span class="linenos">48</span></a><span class="sd">        they are valid, if they are valid then it will be set</span>
-</span><span id="AbstractDriver.set_property-49"><a href="#AbstractDriver.set_property-49"><span class="linenos">49</span></a><span class="sd">        @param zmk_config: ZMKConfig is required and passed onto check_property method</span>
-</span><span id="AbstractDriver.set_property-50"><a href="#AbstractDriver.set_property-50"><span class="linenos">50</span></a><span class="sd">                           so that it can check the config against the property</span>
-</span><span id="AbstractDriver.set_property-51"><a href="#AbstractDriver.set_property-51"><span class="linenos">51</span></a><span class="sd">        @param property_name: name of the property to set</span>
-</span><span id="AbstractDriver.set_property-52"><a href="#AbstractDriver.set_property-52"><span class="linenos">52</span></a><span class="sd">        @param value: value of the property to set</span>
-</span><span id="AbstractDriver.set_property-53"><a href="#AbstractDriver.set_property-53"><span class="linenos">53</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.set_property-54"><a href="#AbstractDriver.set_property-54"><span class="linenos">54</span></a>
-</span><span id="AbstractDriver.set_property-55"><a href="#AbstractDriver.set_property-55"><span class="linenos">55</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_property</span><span class="p">(</span><span class="n">zmk_config</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="AbstractDriver.set_property-56"><a href="#AbstractDriver.set_property-56"><span class="linenos">56</span></a>            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_property</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">):</span>
-</span><span id="AbstractDriver.set_property-57"><a href="#AbstractDriver.set_property-57"><span class="linenos">57</span></a>                <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
-</span><span id="AbstractDriver.set_property-58"><a href="#AbstractDriver.set_property-58"><span class="linenos">58</span></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="AbstractDriver.set_property-59"><a href="#AbstractDriver.set_property-59"><span class="linenos">59</span></a>                    <span class="k">break</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.set_property-46"><a href="#AbstractDriver.set_property-46"><span class="linenos">46</span></a>    <span class="k">def</span> <span class="nf">set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="AbstractDriver.set_property-47"><a href="#AbstractDriver.set_property-47"><span class="linenos">47</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.set_property-48"><a href="#AbstractDriver.set_property-48"><span class="linenos">48</span></a><span class="sd">        this method will pass the parameters to check_property to see if</span>
+</span><span id="AbstractDriver.set_property-49"><a href="#AbstractDriver.set_property-49"><span class="linenos">49</span></a><span class="sd">        they are valid, if they are valid then it will be set</span>
+</span><span id="AbstractDriver.set_property-50"><a href="#AbstractDriver.set_property-50"><span class="linenos">50</span></a>
+</span><span id="AbstractDriver.set_property-51"><a href="#AbstractDriver.set_property-51"><span class="linenos">51</span></a><span class="sd">        @param zmk_config: ZMKConfig is required and passed onto check_property method so that it can check the config</span>
+</span><span id="AbstractDriver.set_property-52"><a href="#AbstractDriver.set_property-52"><span class="linenos">52</span></a><span class="sd">        against the property</span>
+</span><span id="AbstractDriver.set_property-53"><a href="#AbstractDriver.set_property-53"><span class="linenos">53</span></a><span class="sd">        @param property_name: name of the property to set</span>
+</span><span id="AbstractDriver.set_property-54"><a href="#AbstractDriver.set_property-54"><span class="linenos">54</span></a><span class="sd">        @param value: value of the property to set</span>
+</span><span id="AbstractDriver.set_property-55"><a href="#AbstractDriver.set_property-55"><span class="linenos">55</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.set_property-56"><a href="#AbstractDriver.set_property-56"><span class="linenos">56</span></a>
+</span><span id="AbstractDriver.set_property-57"><a href="#AbstractDriver.set_property-57"><span class="linenos">57</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_property</span><span class="p">(</span><span class="n">zmk_config</span><span class="p">,</span> <span class="n">property_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="AbstractDriver.set_property-58"><a href="#AbstractDriver.set_property-58"><span class="linenos">58</span></a>            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_property</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">):</span>
+</span><span id="AbstractDriver.set_property-59"><a href="#AbstractDriver.set_property-59"><span class="linenos">59</span></a>                <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
+</span><span id="AbstractDriver.set_property-60"><a href="#AbstractDriver.set_property-60"><span class="linenos">60</span></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="AbstractDriver.set_property-61"><a href="#AbstractDriver.set_property-61"><span class="linenos">61</span></a>                    <span class="k">break</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>this method will pass the parameters to check_property to see if
-they are valid, if they are valid then it will be set
-@param zmk_config: ZMKConfig is required and passed onto check_property method
-                   so that it can check the config against the property
+they are valid, if they are valid then it will be set</p>
+
+<p>@param zmk_config: ZMKConfig is required and passed onto check_property method so that it can check the config
+against the property
 @param property_name: name of the property to set
 @param value: value of the property to set</p>
 </div>
@@ -449,11 +451,11 @@ they are valid, if they are valid then it will be set
 
     </div>
     <a class="headerlink" href="#AbstractDriver.get_properties"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.get_properties-61"><a href="#AbstractDriver.get_properties-61"><span class="linenos">61</span></a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="AbstractDriver.get_properties-62"><a href="#AbstractDriver.get_properties-62"><span class="linenos">62</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.get_properties-63"><a href="#AbstractDriver.get_properties-63"><span class="linenos">63</span></a><span class="sd">        @return: list of dictionaries containing the properties</span>
-</span><span id="AbstractDriver.get_properties-64"><a href="#AbstractDriver.get_properties-64"><span class="linenos">64</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.get_properties-65"><a href="#AbstractDriver.get_properties-65"><span class="linenos">65</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.get_properties-63"><a href="#AbstractDriver.get_properties-63"><span class="linenos">63</span></a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+</span><span id="AbstractDriver.get_properties-64"><a href="#AbstractDriver.get_properties-64"><span class="linenos">64</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.get_properties-65"><a href="#AbstractDriver.get_properties-65"><span class="linenos">65</span></a><span class="sd">        @return: list of dictionaries containing the properties</span>
+</span><span id="AbstractDriver.get_properties-66"><a href="#AbstractDriver.get_properties-66"><span class="linenos">66</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.get_properties-67"><a href="#AbstractDriver.get_properties-67"><span class="linenos">67</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
 </span></pre></div>
 
 
@@ -473,15 +475,15 @@ they are valid, if they are valid then it will be set
 
     </div>
     <a class="headerlink" href="#AbstractDriver.get_property"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.get_property-67"><a href="#AbstractDriver.get_property-67"><span class="linenos">67</span></a>    <span class="k">def</span> <span class="nf">get_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="AbstractDriver.get_property-68"><a href="#AbstractDriver.get_property-68"><span class="linenos">68</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.get_property-69"><a href="#AbstractDriver.get_property-69"><span class="linenos">69</span></a><span class="sd">        @param property_name: name of the property to get</span>
-</span><span id="AbstractDriver.get_property-70"><a href="#AbstractDriver.get_property-70"><span class="linenos">70</span></a><span class="sd">        @return: dictionary containing the property</span>
-</span><span id="AbstractDriver.get_property-71"><a href="#AbstractDriver.get_property-71"><span class="linenos">71</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.get_property-72"><a href="#AbstractDriver.get_property-72"><span class="linenos">72</span></a>        <span class="k">for</span> <span class="n">_property</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span>
-</span><span id="AbstractDriver.get_property-73"><a href="#AbstractDriver.get_property-73"><span class="linenos">73</span></a>            <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
-</span><span id="AbstractDriver.get_property-74"><a href="#AbstractDriver.get_property-74"><span class="linenos">74</span></a>                <span class="k">return</span> <span class="n">_property</span>
-</span><span id="AbstractDriver.get_property-75"><a href="#AbstractDriver.get_property-75"><span class="linenos">75</span></a>        <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Property </span><span class="si">{</span><span class="n">property_name</span><span class="si">}</span><span class="s1"> is not a property of this driver&#39;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.get_property-69"><a href="#AbstractDriver.get_property-69"><span class="linenos">69</span></a>    <span class="k">def</span> <span class="nf">get_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="AbstractDriver.get_property-70"><a href="#AbstractDriver.get_property-70"><span class="linenos">70</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.get_property-71"><a href="#AbstractDriver.get_property-71"><span class="linenos">71</span></a><span class="sd">        @param property_name: name of the property to get</span>
+</span><span id="AbstractDriver.get_property-72"><a href="#AbstractDriver.get_property-72"><span class="linenos">72</span></a><span class="sd">        @return: dictionary containing the property</span>
+</span><span id="AbstractDriver.get_property-73"><a href="#AbstractDriver.get_property-73"><span class="linenos">73</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.get_property-74"><a href="#AbstractDriver.get_property-74"><span class="linenos">74</span></a>        <span class="k">for</span> <span class="n">_property</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span><span class="p">:</span>
+</span><span id="AbstractDriver.get_property-75"><a href="#AbstractDriver.get_property-75"><span class="linenos">75</span></a>            <span class="k">if</span> <span class="n">_property</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">property_name</span><span class="p">:</span>
+</span><span id="AbstractDriver.get_property-76"><a href="#AbstractDriver.get_property-76"><span class="linenos">76</span></a>                <span class="k">return</span> <span class="n">_property</span>
+</span><span id="AbstractDriver.get_property-77"><a href="#AbstractDriver.get_property-77"><span class="linenos">77</span></a>        <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Property </span><span class="si">{</span><span class="n">property_name</span><span class="si">}</span><span class="s1"> is not a property of this driver&#39;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -503,13 +505,10 @@ they are valid, if they are valid then it will be set
 
     </div>
     <a class="headerlink" href="#AbstractDriver.build"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.build-77"><a href="#AbstractDriver.build-77"><span class="linenos">77</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="AbstractDriver.build-78"><a href="#AbstractDriver.build-78"><span class="linenos">78</span></a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="AbstractDriver.build-79"><a href="#AbstractDriver.build-79"><span class="linenos">79</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.build-80"><a href="#AbstractDriver.build-80"><span class="linenos">80</span></a><span class="sd">        Method will return a dictionary containing the necessary bits of code at the right parts of the code</span>
-</span><span id="AbstractDriver.build-81"><a href="#AbstractDriver.build-81"><span class="linenos">81</span></a>
-</span><span id="AbstractDriver.build-82"><a href="#AbstractDriver.build-82"><span class="linenos">82</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.build-83"><a href="#AbstractDriver.build-83"><span class="linenos">83</span></a>        <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.build-79"><a href="#AbstractDriver.build-79"><span class="linenos">79</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="AbstractDriver.build-80"><a href="#AbstractDriver.build-80"><span class="linenos">80</span></a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zmk_config</span><span class="p">:</span> <span class="n">Config</span><span class="o">.</span><span class="n">ZMKConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="AbstractDriver.build-81"><a href="#AbstractDriver.build-81"><span class="linenos">81</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Method will return a dictionary containing the necessary bits of code at the right parts of the code&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.build-82"><a href="#AbstractDriver.build-82"><span class="linenos">82</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -530,22 +529,24 @@ they are valid, if they are valid then it will be set
 
     </div>
     <a class="headerlink" href="#AbstractDriver.export"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.export-85"><a href="#AbstractDriver.export-85"><span class="linenos">85</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="AbstractDriver.export-86"><a href="#AbstractDriver.export-86"><span class="linenos">86</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span><span id="AbstractDriver.export-87"><a href="#AbstractDriver.export-87"><span class="linenos">87</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractDriver.export-88"><a href="#AbstractDriver.export-88"><span class="linenos">88</span></a><span class="sd">        this method will return a dictionary containing the values of the driver&#39;s</span>
-</span><span id="AbstractDriver.export-89"><a href="#AbstractDriver.export-89"><span class="linenos">89</span></a><span class="sd">        properties so that it can be exported to a json file</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractDriver.export-84"><a href="#AbstractDriver.export-84"><span class="linenos">84</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+</span><span id="AbstractDriver.export-85"><a href="#AbstractDriver.export-85"><span class="linenos">85</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="AbstractDriver.export-86"><a href="#AbstractDriver.export-86"><span class="linenos">86</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractDriver.export-87"><a href="#AbstractDriver.export-87"><span class="linenos">87</span></a><span class="sd">        this method will return a dictionary containing the values of the driver&#39;s</span>
+</span><span id="AbstractDriver.export-88"><a href="#AbstractDriver.export-88"><span class="linenos">88</span></a><span class="sd">        properties so that it can be exported to a json file</span>
+</span><span id="AbstractDriver.export-89"><a href="#AbstractDriver.export-89"><span class="linenos">89</span></a>
 </span><span id="AbstractDriver.export-90"><a href="#AbstractDriver.export-90"><span class="linenos">90</span></a><span class="sd">        @return: dictionary containing the properties of the driver</span>
 </span><span id="AbstractDriver.export-91"><a href="#AbstractDriver.export-91"><span class="linenos">91</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="AbstractDriver.export-92"><a href="#AbstractDriver.export-92"><span class="linenos">92</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="AbstractDriver.export-93"><a href="#AbstractDriver.export-93"><span class="linenos">93</span></a>            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span>
+</span><span id="AbstractDriver.export-93"><a href="#AbstractDriver.export-93"><span class="linenos">93</span></a>            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span>
 </span><span id="AbstractDriver.export-94"><a href="#AbstractDriver.export-94"><span class="linenos">94</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>this method will return a dictionary containing the values of the driver's
-properties so that it can be exported to a json file
-@return: dictionary containing the properties of the driver</p>
+properties so that it can be exported to a json file</p>
+
+<p>@return: dictionary containing the properties of the driver</p>
 </div>
 
 
@@ -574,7 +575,7 @@ properties so that it can be exported to a json file
 </span><span id="MatrixDriver-112"><a href="#MatrixDriver-112"><span class="linenos">112</span></a><span class="sd">        config options or they are options which just complicate the process for my target end user.</span>
 </span><span id="MatrixDriver-113"><a href="#MatrixDriver-113"><span class="linenos">113</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MatrixDriver-114"><a href="#MatrixDriver-114"><span class="linenos">114</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="MatrixDriver-115"><a href="#MatrixDriver-115"><span class="linenos">115</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="MatrixDriver-115"><a href="#MatrixDriver-115"><span class="linenos">115</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span> <span class="o">=</span> <span class="p">[</span>
 </span><span id="MatrixDriver-116"><a href="#MatrixDriver-116"><span class="linenos">116</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;row-gpios&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
 </span><span id="MatrixDriver-117"><a href="#MatrixDriver-117"><span class="linenos">117</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;col-gpios&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
 </span><span id="MatrixDriver-118"><a href="#MatrixDriver-118"><span class="linenos">118</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;diode-direction&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
@@ -586,8 +587,7 @@ properties so that it can be exported to a json file
 </span><span id="MatrixDriver-124"><a href="#MatrixDriver-124"><span class="linenos">124</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MatrixDriver-125"><a href="#MatrixDriver-125"><span class="linenos">125</span></a>        <span class="c1"># aside from error checking to see if the types are correct</span>
 </span><span id="MatrixDriver-126"><a href="#MatrixDriver-126"><span class="linenos">126</span></a>
-</span><span id="MatrixDriver-127"><a href="#MatrixDriver-127"><span class="linenos">127</span></a>        <span class="c1"># label:</span>
-</span><span id="MatrixDriver-128"><a href="#MatrixDriver-128"><span class="linenos">128</span></a>        <span class="c1"># - lower</span>
+</span><span id="MatrixDriver-127"><a href="#MatrixDriver-127"><span class="linenos">127</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -612,7 +612,7 @@ properties so that it can be exported to a json file
 </span><span id="MatrixDriver.__init__-112"><a href="#MatrixDriver.__init__-112"><span class="linenos">112</span></a><span class="sd">        config options or they are options which just complicate the process for my target end user.</span>
 </span><span id="MatrixDriver.__init__-113"><a href="#MatrixDriver.__init__-113"><span class="linenos">113</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MatrixDriver.__init__-114"><a href="#MatrixDriver.__init__-114"><span class="linenos">114</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="MatrixDriver.__init__-115"><a href="#MatrixDriver.__init__-115"><span class="linenos">115</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="MatrixDriver.__init__-115"><a href="#MatrixDriver.__init__-115"><span class="linenos">115</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__properties</span> <span class="o">=</span> <span class="p">[</span>
 </span><span id="MatrixDriver.__init__-116"><a href="#MatrixDriver.__init__-116"><span class="linenos">116</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;row-gpios&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
 </span><span id="MatrixDriver.__init__-117"><a href="#MatrixDriver.__init__-117"><span class="linenos">117</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;col-gpios&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
 </span><span id="MatrixDriver.__init__-118"><a href="#MatrixDriver.__init__-118"><span class="linenos">118</span></a>            <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;diode-direction&#39;</span><span class="p">,</span> <span class="s1">&#39;types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
@@ -644,8 +644,7 @@ config options or they are options which just complicate the process for my targ
 </span><span id="MatrixDriver.check_property-124"><a href="#MatrixDriver.check_property-124"><span class="linenos">124</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MatrixDriver.check_property-125"><a href="#MatrixDriver.check_property-125"><span class="linenos">125</span></a>        <span class="c1"># aside from error checking to see if the types are correct</span>
 </span><span id="MatrixDriver.check_property-126"><a href="#MatrixDriver.check_property-126"><span class="linenos">126</span></a>
-</span><span id="MatrixDriver.check_property-127"><a href="#MatrixDriver.check_property-127"><span class="linenos">127</span></a>        <span class="c1"># label:</span>
-</span><span id="MatrixDriver.check_property-128"><a href="#MatrixDriver.check_property-128"><span class="linenos">128</span></a>        <span class="c1"># - lower</span>
+</span><span id="MatrixDriver.check_property-127"><a href="#MatrixDriver.check_property-127"><span class="linenos">127</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
 

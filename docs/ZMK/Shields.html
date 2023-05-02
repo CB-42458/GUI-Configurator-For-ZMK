@@ -104,45 +104,35 @@ the files that are already in the ZMK repository.</p>
 </span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
 </span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>
 </span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a><span class="k">def</span> <span class="nf">get_shields</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="sd">    Getter for the shields</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="k">return</span> <span class="n">__shields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="k">def</span> <span class="nf">__taken</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">    Checks if the value is already taken</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;parameter &#39;value&#39; of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> is not a string&quot;</span><span class="p">)</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Getter for the shields&quot;&quot;&quot;</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="k">return</span> <span class="n">__shields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="k">def</span> <span class="nf">__taken</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the value is already taken&quot;&quot;&quot;</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;parameter &#39;value&#39; of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> is not a string&quot;</span><span class="p">)</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>    <span class="k">for</span> <span class="n">shield</span> <span class="ow">in</span> <span class="n">__shields</span><span class="p">:</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>        <span class="k">if</span> <span class="n">shield</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>            <span class="k">return</span> <span class="kc">True</span>
 </span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>    <span class="k">for</span> <span class="n">shield</span> <span class="ow">in</span> <span class="n">__shields</span><span class="p">:</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>        <span class="k">if</span> <span class="n">shield</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>            <span class="k">return</span> <span class="kc">True</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>    <span class="k">return</span> <span class="kc">False</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>
+</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>    <span class="k">return</span> <span class="kc">False</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>
+</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>
+</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a><span class="k">def</span> <span class="nf">is_name_taken</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the name is already taken&quot;&quot;&quot;</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 </span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="k">def</span> <span class="nf">is_name_taken</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="sd">    Checks if the name is already taken</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="k">def</span> <span class="nf">is_id_taken</span><span class="p">(</span><span class="n">shield_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the id is already taken&quot;&quot;&quot;</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">shield_id</span><span class="p">)</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>
 </span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>
-</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="k">def</span> <span class="nf">is_id_taken</span><span class="p">(</span><span class="n">shield_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a><span class="sd">    Checks if the id is already taken</span>
-</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">shield_id</span><span class="p">)</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a>
-</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>
-</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a><span class="k">def</span> <span class="nf">is_directory_taken</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a><span class="sd">    Checks if the directory name is already taken</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;directory_name&quot;</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a><span class="k">def</span> <span class="nf">is_directory_taken</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the directory name is already taken&quot;&quot;&quot;</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;directory_name&quot;</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -159,10 +149,8 @@ the files that are already in the ZMK repository.</p>
     </div>
     <a class="headerlink" href="#get_shields"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="get_shields-37"><a href="#get_shields-37"><span class="linenos">37</span></a><span class="k">def</span> <span class="nf">get_shields</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="get_shields-38"><a href="#get_shields-38"><span class="linenos">38</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="get_shields-39"><a href="#get_shields-39"><span class="linenos">39</span></a><span class="sd">    Getter for the shields</span>
-</span><span id="get_shields-40"><a href="#get_shields-40"><span class="linenos">40</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="get_shields-41"><a href="#get_shields-41"><span class="linenos">41</span></a>    <span class="k">return</span> <span class="n">__shields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="get_shields-38"><a href="#get_shields-38"><span class="linenos">38</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Getter for the shields&quot;&quot;&quot;</span>
+</span><span id="get_shields-39"><a href="#get_shields-39"><span class="linenos">39</span></a>    <span class="k">return</span> <span class="n">__shields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -182,11 +170,9 @@ the files that are already in the ZMK repository.</p>
 
     </div>
     <a class="headerlink" href="#is_name_taken"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="is_name_taken-58"><a href="#is_name_taken-58"><span class="linenos">58</span></a><span class="k">def</span> <span class="nf">is_name_taken</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="is_name_taken-59"><a href="#is_name_taken-59"><span class="linenos">59</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="is_name_taken-60"><a href="#is_name_taken-60"><span class="linenos">60</span></a><span class="sd">    Checks if the name is already taken</span>
-</span><span id="is_name_taken-61"><a href="#is_name_taken-61"><span class="linenos">61</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="is_name_taken-62"><a href="#is_name_taken-62"><span class="linenos">62</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="is_name_taken-54"><a href="#is_name_taken-54"><span class="linenos">54</span></a><span class="k">def</span> <span class="nf">is_name_taken</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="is_name_taken-55"><a href="#is_name_taken-55"><span class="linenos">55</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the name is already taken&quot;&quot;&quot;</span>
+</span><span id="is_name_taken-56"><a href="#is_name_taken-56"><span class="linenos">56</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -206,11 +192,9 @@ the files that are already in the ZMK repository.</p>
 
     </div>
     <a class="headerlink" href="#is_id_taken"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="is_id_taken-65"><a href="#is_id_taken-65"><span class="linenos">65</span></a><span class="k">def</span> <span class="nf">is_id_taken</span><span class="p">(</span><span class="n">shield_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="is_id_taken-66"><a href="#is_id_taken-66"><span class="linenos">66</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="is_id_taken-67"><a href="#is_id_taken-67"><span class="linenos">67</span></a><span class="sd">    Checks if the id is already taken</span>
-</span><span id="is_id_taken-68"><a href="#is_id_taken-68"><span class="linenos">68</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="is_id_taken-69"><a href="#is_id_taken-69"><span class="linenos">69</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">shield_id</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="is_id_taken-59"><a href="#is_id_taken-59"><span class="linenos">59</span></a><span class="k">def</span> <span class="nf">is_id_taken</span><span class="p">(</span><span class="n">shield_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="is_id_taken-60"><a href="#is_id_taken-60"><span class="linenos">60</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the id is already taken&quot;&quot;&quot;</span>
+</span><span id="is_id_taken-61"><a href="#is_id_taken-61"><span class="linenos">61</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">shield_id</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -230,11 +214,9 @@ the files that are already in the ZMK repository.</p>
 
     </div>
     <a class="headerlink" href="#is_directory_taken"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="is_directory_taken-72"><a href="#is_directory_taken-72"><span class="linenos">72</span></a><span class="k">def</span> <span class="nf">is_directory_taken</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="is_directory_taken-73"><a href="#is_directory_taken-73"><span class="linenos">73</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="is_directory_taken-74"><a href="#is_directory_taken-74"><span class="linenos">74</span></a><span class="sd">    Checks if the directory name is already taken</span>
-</span><span id="is_directory_taken-75"><a href="#is_directory_taken-75"><span class="linenos">75</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="is_directory_taken-76"><a href="#is_directory_taken-76"><span class="linenos">76</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;directory_name&quot;</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="is_directory_taken-64"><a href="#is_directory_taken-64"><span class="linenos">64</span></a><span class="k">def</span> <span class="nf">is_directory_taken</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="is_directory_taken-65"><a href="#is_directory_taken-65"><span class="linenos">65</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the directory name is already taken&quot;&quot;&quot;</span>
+</span><span id="is_directory_taken-66"><a href="#is_directory_taken-66"><span class="linenos">66</span></a>    <span class="k">return</span> <span class="n">__taken</span><span class="p">(</span><span class="s2">&quot;directory_name&quot;</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
 </span></pre></div>
 
 
