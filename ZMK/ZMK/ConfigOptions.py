@@ -3,6 +3,9 @@ Module for ZMK containing the parent class 'AbstractConfigOption' and its subcla
 """
 from __future__ import annotations
 
+__all__ = ['AbstractConfigOption', 'ZMK_KEYBOARD_NAME', 'ZMK_HID_CONSUMER_REPORT_SIZE', 'BT_MAX_CONN', 'BT_MAX_PAIRED',
+           'ZMK_SPLIT', 'ZMK_SPLIT_ROLE_CENTRAL']
+
 import typing
 import abc
 

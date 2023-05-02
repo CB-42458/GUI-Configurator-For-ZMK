@@ -7,19 +7,14 @@ represent a class as I couldn't think of a better way to do that.
 """
 from __future__ import annotations
 
+__all__ = ['ZMKConfig']
+
 from typing import TYPE_CHECKING, TypedDict
 from os import path
 
 if TYPE_CHECKING:
     from . import Features, MCUs, Drivers, Behaviours, ConfigOptions, ExportConfig, Shields, \
         Transform, CustomDataStructures as CusDataStruc  # noqa: E402
-
-
-def add_dependencies():
-    """
-    Function.
-    """
-
 
 from . import Features, MCUs, Drivers, Behaviours, ConfigOptions, ExportConfig, Shields, Transform, \
     CustomDataStructures as CusDataStruc  # noqa: E402

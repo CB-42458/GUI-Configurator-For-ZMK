@@ -3,7 +3,7 @@ Module is used to Export the ZMKConfig to a JSON file
 """
 from __future__ import annotations
 
-__all__ = ['export_config']
+__all__ = ['ZMKJSONEncoder', 'export_config']
 
 import json
 import typing

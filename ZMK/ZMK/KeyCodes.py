@@ -3,8 +3,8 @@ This module contains classes for the keycodes with private attributes that prote
 """
 from __future__ import annotations
 
-__all__ = ["KeyCodesJSON", "FunctionModifiersJSON", 'BluetoothKeyCodesJSON', 'OutputKeyCodesJSON', 'KeyCode',
-           'FunctionModifier', 'BluetoothKeyCode', 'OutputKeyCode']
+__all__ = ["AbstractJSONDictionary", "KeyCodesJSON", "FunctionModifiersJSON", 'BluetoothKeyCodesJSON',
+           'OutputKeyCodesJSON', 'KeyCode', 'FunctionModifier', 'BluetoothKeyCode', 'OutputKeyCode']
 
 import abc
 import json

@@ -3,7 +3,7 @@ This module houses the MatrixTransform class which is used to represent a matrix
 """
 from __future__ import annotations
 
-__all__ = ['MatrixTransform']
+__all__ = ['RowCol', 'MatrixTransform']
 
 from dataclasses import dataclass
 import typing
@@ -14,6 +14,7 @@ if typing.TYPE_CHECKING:
     from . import Config
 
 
+# noinspection PyMissingOrEmptyDocstring
 @dataclass
 class RowCol:
     """

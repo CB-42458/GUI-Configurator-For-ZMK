@@ -3,7 +3,7 @@ Module for ZMK containing the parent class '' and its children.
 """
 from __future__ import annotations
 
-__all__ = ['ProMicroInterconnect', 'NiceNanoV2']
+__all__ = ['AbstractInterconnect', 'AbstractMCU', 'ProMicroInterconnect', 'NiceNanoV2']
 
 import abc
 import typing

@@ -5,6 +5,8 @@ Module for ZMK containing the parent class 'Driver' and its children.
 """
 from __future__ import annotations
 
+__all__ = ['AbstractDriver']
+
 import abc
 import typing
 
