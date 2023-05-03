@@ -3,8 +3,9 @@ This module contains classes for the keycodes with private attributes that prote
 """
 from __future__ import annotations
 
-__all__ = ["AbstractJSONDictionary", "KeyCodesJSON", "FunctionModifiersJSON", 'BluetoothKeyCodesJSON',
-           'OutputKeyCodesJSON', 'KeyCode', 'FunctionModifier', 'BluetoothKeyCode', 'OutputKeyCode']
+__all__ = ["AbstractJSONDictionary", "KeyCodesJSON", "FunctionModifiersJSON",
+           'BluetoothKeyCodesJSON',
+           'OutputKeyCodesAbstractJSON', 'KeyCode', 'FunctionModifier', 'BluetoothKeyCode', 'OutputKeyCode']
 
 import abc
 import json
@@ -21,18 +22,18 @@ class AbstractJSONDictionary:
 
     @abc.abstractmethod
     def __init__(self):
-        self.__dictionary = {}
+        self._dictionary = {}
 
     def __iter__(self):
-        return iter(self.__dictionary)
+        return iter(self._dictionary)
 
     def __getitem__(self, key) -> dict:
-        if key not in self.__dictionary:
+        if key not in self._dictionary:
             raise KeyError(f"key {key} is not in the dictionary")
-        return self.__dictionary[key]
+        return self._dictionary[key]
 
     def __contains__(self, item):
-        return item in self.__dictionary
+        return item in self._dictionary
 
 
 class KeyCodesJSON(AbstractJSONDictionary):
@@ -40,11 +41,11 @@ class KeyCodesJSON(AbstractJSONDictionary):
     this class will act as a dictionary which is protected, as the JSON files are used frequently and otherwise the
     program would have to read the file several times
     """
-    __dictionary = json.load(open(resource_filename(__name__, 'key_codes.json'), 'r', encoding='utf8'))
+    _dictionary = json.load(open(resource_filename(__name__, 'key_codes.json'), 'r', encoding='utf8'))
 
     def __init__(self):
         super().__init__()
-        self._dictionary = self.__dictionary
+        self._dictionary = KeyCodesJSON._dictionary
 
 
 class FunctionModifiersJSON(AbstractJSONDictionary):
@@ -52,11 +53,11 @@ class FunctionModifiersJSON(AbstractJSONDictionary):
     this class will act as a dictionary which is protected, as the JSON files are used frequently and otherwise the
     program would have to read the file several times
     """
-    __dictionary = json.load(open(resource_filename(__name__, 'function_modifiers.json'), 'r', encoding='utf8'))
+    _dictionary = json.load(open(resource_filename(__name__, 'function_modifiers.json'), 'r', encoding='utf8'))
 
     def __init__(self):
         super().__init__()
-        self._dictionary = self.__dictionary
+        self._dictionary = FunctionModifiersJSON._dictionary
 
 
 class BluetoothKeyCodesJSON(AbstractJSONDictionary):
@@ -64,23 +65,23 @@ class BluetoothKeyCodesJSON(AbstractJSONDictionary):
     this class will act as a dictionary which is protected, as the JSON files are used frequently and otherwise the
     program would have to read the file several times
     """
-    __dictionary = json.load(open(resource_filename(__name__, 'bluetooth_keycodes.json'), 'r', encoding='utf8'))
+    _dictionary = json.load(open(resource_filename(__name__, 'bluetooth_keycodes.json'), 'r', encoding='utf8'))
 
     def __init__(self):
         super().__init__()
-        self._dictionary = self.__dictionary
+        self._dictionary = BluetoothKeyCodesJSON._dictionary
 
 
-class OutputKeyCodesJSON(AbstractJSONDictionary):
+class OutputKeyCodesAbstractJSON(AbstractJSONDictionary):
     """
     this class will act as a dictionary which is protected, as the JSON files are used frequently and otherwise the
     program would have to read the file several times
     """
-    __dictionary = json.load(open(resource_filename(__name__, 'output_keycodes.json'), 'r', encoding='utf8'))
+    _dictionary = json.load(open(resource_filename(__name__, 'output_keycodes.json'), 'r', encoding='utf8'))
 
     def __init__(self):
         super().__init__()
-        self._dictionary = self.__dictionary
+        self._dictionary = OutputKeyCodesAbstractJSON._dictionary
 
 
 class AbstractCode:
@@ -91,21 +92,21 @@ class AbstractCode:
 
     @abc.abstractmethod
     def __init__(self):
-        self.__name = None
-        self.__description = None
-        self.__context = None
+        self._name = None
+        self._description = None
+        self._context = None
 
     def get_name(self) -> str:
-        """getter for the protected attribute __name"""
-        return self.__name
+        """getter for the protected attribute _name"""
+        return self._name
 
     def get_description(self) -> str:
-        """getter for the protected attribute __description"""
-        return self.__description
+        """getter for the protected attribute _description"""
+        return self._description
 
     def get_context(self) -> str:
-        """getter for the protected attribute __context"""
-        return self.__context
+        """getter for the protected attribute _context"""
+        return self._context
 
     @abc.abstractmethod
     def build(self) -> dict:
@@ -122,7 +123,7 @@ class AbstractCode:
         """
         method will turn a dictionary in a format which is able to be serialised to JSON
         """
-        return {f"{self.__class__}": {'__name': self.__name}}
+        return {f"{self.__class__}": {'_name': self._name}}
 
 
 class AbstractCodeWithBinding(AbstractCode):
@@ -139,26 +140,26 @@ class AbstractCodeWithBinding(AbstractCode):
     @abc.abstractmethod
     def __init__(self):
         super().__init__()
-        self.__binding = {}
+        self._binding = {}
 
     def get_binding(self) -> dict:
         """
         getter for the protected attribute _binding
         """
-        return self.__binding
+        return self._binding
 
     def set_binding(self, value) -> None:
         """
         setter for the protected attribute _binding
         """
         # checks for the correct data type
-        if type(value) not in self.__binding['data_types']:
-            raise TypeError(f"parameter 'value' expected {self.__binding['data_types']} but received {type(value)}")
+        if type(value) not in self._binding['data_types']:
+            raise TypeError(f"parameter 'value' expected {self._binding['data_types']} but received {type(value)}")
         # if there is data validation, and it is not passed then raise error
-        if 'data_validation' in self.__binding and not self.__binding['data_validation'](value):
+        if 'data_validation' in self._binding and not self._binding['data_validation'](value):
             raise ValueError(f"parameter 'value' failed data validation")
 
-        self.__binding['current_value'] = value
+        self._binding['current_value'] = value
 
     def export(self, recursion: dict = None) -> dict:
         """
@@ -166,7 +167,7 @@ class AbstractCodeWithBinding(AbstractCode):
         """
         if recursion is None:
             return_dict = super().export()
-            return_dict[f"{self.__class__}"]['_binding'] = self.export(recursion=self.__binding)
+            return_dict[f"{self.__class__}"]['_binding'] = self.export(recursion=self._binding)
             return return_dict
         if 'export' in dir(recursion['current_value']):
             return recursion['current_value'].export()
@@ -186,9 +187,9 @@ class KeyCode(AbstractCode):
         if name not in KeyCodesJSON():
             raise KeyError(f"parameter 'name' expected to be from key_codes.json but received {name}")
 
-        self.__name = name
-        self.__description = KeyCodesJSON()[name]["description"]
-        self.__context = KeyCodesJSON()[name]["context"]
+        self._name = name
+        self._description = KeyCodesJSON()[name]["description"]
+        self._context = KeyCodesJSON()[name]["context"]
 
     def build(self) -> dict:
         """
@@ -197,12 +198,12 @@ class KeyCode(AbstractCode):
         return {
             '.keymap': {
                 'include': ['dt-bindings/zmk/keys.h'],
-                'return' : self.__name
+                'return' : self._name
             }
         }
 
     def __str__(self):
-        return f"KeyCode('{self.__name}')"
+        return f"KeyCode('{self._name}')"
 
 
 class FunctionModifier(AbstractCodeWithBinding):
@@ -222,9 +223,9 @@ class FunctionModifier(AbstractCodeWithBinding):
         if name not in FunctionModifiersJSON():
             raise KeyError("parameter 'name' required a valid name from function_modifiers.json")
 
-        self.__name: str = name
-        self.__description: str = FunctionModifiersJSON()[name]["description"]
-        self.__context: str = FunctionModifiersJSON()[name]["context"]
+        self._name: str = name
+        self._description: str = FunctionModifiersJSON()[name]["description"]
+        self._context: str = FunctionModifiersJSON()[name]["context"]
         self.set_binding(binding)
 
     def build(self) -> dict:
@@ -235,12 +236,12 @@ class FunctionModifier(AbstractCodeWithBinding):
         return {
             '.keymap': {
                 'include': list_union(built_binding_dict['.keymap']['include'], ['dt-bindings/zmk/keys.h']),
-                'return' : self.__name.replace('xx', built_binding_dict['.keymap']['return'])
+                'return' : self._name.replace('xx', built_binding_dict['.keymap']['return'])
             }
         }
 
     def __str__(self):
-        return f"FunctionModifier('{self.__name}', {self._binding['current_value']})"
+        return f"FunctionModifier('{self._name}', {self._binding['current_value']})"
 
 
 class BluetoothKeyCode(AbstractCodeWithBinding):
@@ -254,7 +255,7 @@ class BluetoothKeyCode(AbstractCodeWithBinding):
         self._binding = {
             'property_name'  : 'binding',
             'data_types'     : [int, type(None)],
-            'data_validation': lambda value: (self.__name == 'BT_SEL(xx)' and type(value) is int and 0 <= value) or (
+            'data_validation': lambda value: (self._name == 'BT_SEL(xx)' and type(value) is int and 0 <= value) or (
                     name != 'BT_SEL(xx)' and value is None),
             'current_value'  : None
         }
@@ -264,9 +265,9 @@ class BluetoothKeyCode(AbstractCodeWithBinding):
         if name not in BluetoothKeyCodesJSON():
             raise KeyError(f"parameter 'name' expected to be from bluetooth_key_codes.json but received {name}")
 
-        self.__name = name
-        self.__description = BluetoothKeyCodesJSON()[name]["description"]
-        self.__context = BluetoothKeyCodesJSON()[name]["context"]
+        self._name = name
+        self._description = BluetoothKeyCodesJSON()[name]["description"]
+        self._context = BluetoothKeyCodesJSON()[name]["context"]
         self.set_binding(binding)
 
     def build(self) -> dict:
@@ -276,12 +277,12 @@ class BluetoothKeyCode(AbstractCodeWithBinding):
         return {
             '.keymap': {
                 'include': ['dt-bindings/zmk/bt.h'],
-                'return' : self.__name.replace('(xx)', f" {self._binding['current_value']}")
+                'return' : self._name.replace('(xx)', f" {self._binding['current_value']}")
             }
         }
 
     def __str__(self):
-        return f"BluetoothKeyCode('{self.__name}', {self._binding['current_value']})"
+        return f"BluetoothKeyCode('{self._name}', {self._binding['current_value']})"
 
 
 class OutputKeyCode(AbstractCode):
@@ -294,12 +295,12 @@ class OutputKeyCode(AbstractCode):
         super().__init__()
         if type(name) is not str:
             raise TypeError(f"parameter 'name' expected {str} but received {type(name)}")
-        if name not in OutputKeyCodesJSON():
+        if name not in OutputKeyCodesAbstractJSON():
             raise KeyError(f"parameter 'name' expected to be from output_key_codes.json but received {name}")
 
-        self.__name = name
-        self.__description = OutputKeyCodesJSON()[name]["description"]
-        self.__context = OutputKeyCodesJSON()[name]["context"]
+        self._name = name
+        self._description = OutputKeyCodesAbstractJSON()[name]["description"]
+        self._context = OutputKeyCodesAbstractJSON()[name]["context"]
 
     def build(self) -> dict:
         """
@@ -308,9 +309,9 @@ class OutputKeyCode(AbstractCode):
         return {
             '.keymap': {
                 'include': ['dt-bindings/zmk/outputs.h'],
-                'return' : self.__name
+                'return' : self._name
             }
         }
 
     def __str__(self):
-        return f"OutputKeyCode('{self.__name}')"
+        return f"OutputKeyCode('{self._name}')"
