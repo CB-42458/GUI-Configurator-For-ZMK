@@ -753,8 +753,8 @@ class KeyWidget(Scatter):
     # noinspection PyUnusedLocal
     def on_height(self, screen_manager: ScreenManager, height):
         """
-        on_height is called when the height of the window changes, this is used to update the position of the key
-        to ensure that it stays at the top of the window
+        on_height is called when the height of the window changes, this is used to update the position of the key to
+        ensure that it stays at the top of the window
 
         @param screen_manager: the screen manager which is bound to the event
         @param height: the new height of the screen_manager widget
@@ -772,8 +772,8 @@ class RowColumnScreen(Screen):
 
     class RowColumnWidget(KeyWidget):
         """
-        Inherits the KeyWidget class and adds box layout to create a widget which can be used to configure the
-        rows and columns for keys of the keyboard.
+        Inherits the KeyWidget class and adds box layout to create a widget which can be used to configure the rows and
+        columns for keys of the keyboard.
         """
 
         def __init__(self, index):
@@ -987,7 +987,7 @@ class SettingsScreen(Screen):
 
     def on_parent(self, widget: SettingsScreen, parent: ScreenManager):
         """
-        on_parent is called when this widget is added to a parent widget#
+        on_parent is called when this widget is added to a parent widget
 
         @param widget: self
         @param parent: the parent widget, ScreenManager
