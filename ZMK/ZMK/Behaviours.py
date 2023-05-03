@@ -24,6 +24,7 @@ class AbstractBehaviour:
 
     @abc.abstractmethod
     def __init__(self):
+        self._properties: list = []
         """
         each element in the list _properties will be of this structure:
         {'property_name': name,
@@ -35,7 +36,6 @@ class AbstractBehaviour:
         because on the creation of the object, the data type of property is set, so that error checking can be carried
         out.
         """
-        self._properties: list = []
 
     def get_behaviour_config_properties(self) -> list:
         """
