@@ -31,6 +31,15 @@
             <h2>API Documentation</h2>
                 <ul class="memberlist">
             <li>
+                    <a class="class" href="#ZMKJSONEncoder">ZMKJSONEncoder</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#ZMKJSONEncoder.default">default</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="function" href="#export_config">export_config</a>
             </li>
     </ul>
@@ -61,7 +70,7 @@
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;export_config&#39;</span><span class="p">]</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ZMKJSONEncoder&#39;</span><span class="p">,</span> <span class="s1">&#39;export_config&#39;</span><span class="p">]</span>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
 </span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="kn">import</span> <span class="nn">json</span>
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="kn">import</span> <span class="nn">typing</span>
@@ -111,6 +120,90 @@
 
 
             </section>
+                <section id="ZMKJSONEncoder">
+                            <input id="ZMKJSONEncoder-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">ZMKJSONEncoder</span><wbr>(<span class="base">json.encoder.JSONEncoder</span>):
+
+                <label class="view-source-button" for="ZMKJSONEncoder-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#ZMKJSONEncoder"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ZMKJSONEncoder-16"><a href="#ZMKJSONEncoder-16"><span class="linenos">16</span></a><span class="k">class</span> <span class="nc">ZMKJSONEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+</span><span id="ZMKJSONEncoder-17"><a href="#ZMKJSONEncoder-17"><span class="linenos">17</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;This class is used to encode the ZMKConfig to a JSON file&quot;&quot;&quot;</span>
+</span><span id="ZMKJSONEncoder-18"><a href="#ZMKJSONEncoder-18"><span class="linenos">18</span></a>
+</span><span id="ZMKJSONEncoder-19"><a href="#ZMKJSONEncoder-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
+</span><span id="ZMKJSONEncoder-20"><a href="#ZMKJSONEncoder-20"><span class="linenos">20</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ZMKJSONEncoder-21"><a href="#ZMKJSONEncoder-21"><span class="linenos">21</span></a><span class="sd">        Method is used to encode the ZMKConfig to a JSON file.</span>
+</span><span id="ZMKJSONEncoder-22"><a href="#ZMKJSONEncoder-22"><span class="linenos">22</span></a>
+</span><span id="ZMKJSONEncoder-23"><a href="#ZMKJSONEncoder-23"><span class="linenos">23</span></a><span class="sd">        @param o: object to encode</span>
+</span><span id="ZMKJSONEncoder-24"><a href="#ZMKJSONEncoder-24"><span class="linenos">24</span></a><span class="sd">        @return: encoded object</span>
+</span><span id="ZMKJSONEncoder-25"><a href="#ZMKJSONEncoder-25"><span class="linenos">25</span></a>
+</span><span id="ZMKJSONEncoder-26"><a href="#ZMKJSONEncoder-26"><span class="linenos">26</span></a><span class="sd">        The object in question should be objects of the ZMK package which have an export method which converts the</span>
+</span><span id="ZMKJSONEncoder-27"><a href="#ZMKJSONEncoder-27"><span class="linenos">27</span></a><span class="sd">        attributes of to a format which can be exported to a json file and then imported again</span>
+</span><span id="ZMKJSONEncoder-28"><a href="#ZMKJSONEncoder-28"><span class="linenos">28</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ZMKJSONEncoder-29"><a href="#ZMKJSONEncoder-29"><span class="linenos">29</span></a>        <span class="k">if</span> <span class="s1">&#39;export&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
+</span><span id="ZMKJSONEncoder-30"><a href="#ZMKJSONEncoder-30"><span class="linenos">30</span></a>            <span class="k">return</span> <span class="n">o</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+</span><span id="ZMKJSONEncoder-31"><a href="#ZMKJSONEncoder-31"><span class="linenos">31</span></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>This class is used to encode the ZMKConfig to a JSON file</p>
+</div>
+
+
+                            <div id="ZMKJSONEncoder.default" class="classattr">
+                                        <input id="ZMKJSONEncoder.default-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">default</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">o</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">function</span> <span class="nb">any</span><span class="o">&gt;</span></span><span class="return-annotation">) -> <span class="o">&lt;</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">function</span> <span class="nb">any</span><span class="o">&gt;</span>:</span></span>
+
+                <label class="view-source-button" for="ZMKJSONEncoder.default-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#ZMKJSONEncoder.default"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ZMKJSONEncoder.default-19"><a href="#ZMKJSONEncoder.default-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
+</span><span id="ZMKJSONEncoder.default-20"><a href="#ZMKJSONEncoder.default-20"><span class="linenos">20</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ZMKJSONEncoder.default-21"><a href="#ZMKJSONEncoder.default-21"><span class="linenos">21</span></a><span class="sd">        Method is used to encode the ZMKConfig to a JSON file.</span>
+</span><span id="ZMKJSONEncoder.default-22"><a href="#ZMKJSONEncoder.default-22"><span class="linenos">22</span></a>
+</span><span id="ZMKJSONEncoder.default-23"><a href="#ZMKJSONEncoder.default-23"><span class="linenos">23</span></a><span class="sd">        @param o: object to encode</span>
+</span><span id="ZMKJSONEncoder.default-24"><a href="#ZMKJSONEncoder.default-24"><span class="linenos">24</span></a><span class="sd">        @return: encoded object</span>
+</span><span id="ZMKJSONEncoder.default-25"><a href="#ZMKJSONEncoder.default-25"><span class="linenos">25</span></a>
+</span><span id="ZMKJSONEncoder.default-26"><a href="#ZMKJSONEncoder.default-26"><span class="linenos">26</span></a><span class="sd">        The object in question should be objects of the ZMK package which have an export method which converts the</span>
+</span><span id="ZMKJSONEncoder.default-27"><a href="#ZMKJSONEncoder.default-27"><span class="linenos">27</span></a><span class="sd">        attributes of to a format which can be exported to a json file and then imported again</span>
+</span><span id="ZMKJSONEncoder.default-28"><a href="#ZMKJSONEncoder.default-28"><span class="linenos">28</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ZMKJSONEncoder.default-29"><a href="#ZMKJSONEncoder.default-29"><span class="linenos">29</span></a>        <span class="k">if</span> <span class="s1">&#39;export&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
+</span><span id="ZMKJSONEncoder.default-30"><a href="#ZMKJSONEncoder.default-30"><span class="linenos">30</span></a>            <span class="k">return</span> <span class="n">o</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+</span><span id="ZMKJSONEncoder.default-31"><a href="#ZMKJSONEncoder.default-31"><span class="linenos">31</span></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Method is used to encode the ZMKConfig to a JSON file.</p>
+
+<p>@param o: object to encode
+@return: encoded object</p>
+
+<p>The object in question should be objects of the ZMK package which have an export method which converts the
+attributes of to a format which can be exported to a json file and then imported again</p>
+</div>
+
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>json.encoder.JSONEncoder</dt>
+                                <dd id="ZMKJSONEncoder.__init__" class="function">JSONEncoder</dd>
+                <dd id="ZMKJSONEncoder.encode" class="function">encode</dd>
+                <dd id="ZMKJSONEncoder.iterencode" class="function">iterencode</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
                 <section id="export_config">
                             <input id="export_config-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">

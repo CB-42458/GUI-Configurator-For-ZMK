@@ -34,9 +34,6 @@
                     <a class="class" href="#AbstractBehaviour">AbstractBehaviour</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#AbstractBehaviour.__init__">AbstractBehaviour</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#AbstractBehaviour.get_behaviour_config_properties">get_behaviour_config_properties</a>
                         </li>
                         <li>
@@ -103,9 +100,6 @@
                     <a class="class" href="#Transparent">Transparent</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#Transparent.__init__">Transparent</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#Transparent.build">build</a>
                         </li>
                 </ul>
@@ -114,9 +108,6 @@
             <li>
                     <a class="class" href="#NoneBehaviour">NoneBehaviour</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#NoneBehaviour.__init__">NoneBehaviour</a>
-                        </li>
                         <li>
                                 <a class="function" href="#NoneBehaviour.build">build</a>
                         </li>
@@ -127,9 +118,6 @@
                     <a class="class" href="#Reset">Reset</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#Reset.__init__">Reset</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#Reset.build">build</a>
                         </li>
                 </ul>
@@ -138,9 +126,6 @@
             <li>
                     <a class="class" href="#BootloaderReset">BootloaderReset</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#BootloaderReset.__init__">BootloaderReset</a>
-                        </li>
                         <li>
                                 <a class="function" href="#BootloaderReset.build">build</a>
                         </li>
@@ -220,18 +205,18 @@
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>
 </span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
 </span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a><span class="sd">        each element in the list _properties will be of this structure:</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="sd">        {&#39;property_name&#39;: name,</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">         &#39;data_types&#39;: [list of valid data types],</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a><span class="sd">         &#39;current_value&#39;: value,</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="sd">         &#39;data_validation&#39;: lambda expression}</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a><span class="sd">        the &#39;data_validation&#39; property is optional but is used when validation is required</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">        because on the creation of the object, the data type of property is set, so that error checking can be carried</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">        out.</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="sd">        each element in the list _properties will be of this structure:</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">        {&#39;property_name&#39;: name,</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a><span class="sd">         &#39;data_types&#39;: [list of valid data types],</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="sd">         &#39;current_value&#39;: value,</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a><span class="sd">         &#39;data_validation&#39;: lambda expression}</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">        the &#39;data_validation&#39; property is optional but is used when validation is required</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">        because on the creation of the object, the data type of property is set, so that error checking can be carried</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">        out.</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>    <span class="k">def</span> <span class="nf">get_behaviour_config_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 </span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -613,18 +598,18 @@
 </span><span id="AbstractBehaviour-25"><a href="#AbstractBehaviour-25"><span class="linenos">25</span></a>
 </span><span id="AbstractBehaviour-26"><a href="#AbstractBehaviour-26"><span class="linenos">26</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
 </span><span id="AbstractBehaviour-27"><a href="#AbstractBehaviour-27"><span class="linenos">27</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="AbstractBehaviour-28"><a href="#AbstractBehaviour-28"><span class="linenos">28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractBehaviour-29"><a href="#AbstractBehaviour-29"><span class="linenos">29</span></a><span class="sd">        each element in the list _properties will be of this structure:</span>
-</span><span id="AbstractBehaviour-30"><a href="#AbstractBehaviour-30"><span class="linenos">30</span></a><span class="sd">        {&#39;property_name&#39;: name,</span>
-</span><span id="AbstractBehaviour-31"><a href="#AbstractBehaviour-31"><span class="linenos">31</span></a><span class="sd">         &#39;data_types&#39;: [list of valid data types],</span>
-</span><span id="AbstractBehaviour-32"><a href="#AbstractBehaviour-32"><span class="linenos">32</span></a><span class="sd">         &#39;current_value&#39;: value,</span>
-</span><span id="AbstractBehaviour-33"><a href="#AbstractBehaviour-33"><span class="linenos">33</span></a><span class="sd">         &#39;data_validation&#39;: lambda expression}</span>
-</span><span id="AbstractBehaviour-34"><a href="#AbstractBehaviour-34"><span class="linenos">34</span></a>
-</span><span id="AbstractBehaviour-35"><a href="#AbstractBehaviour-35"><span class="linenos">35</span></a><span class="sd">        the &#39;data_validation&#39; property is optional but is used when validation is required</span>
-</span><span id="AbstractBehaviour-36"><a href="#AbstractBehaviour-36"><span class="linenos">36</span></a><span class="sd">        because on the creation of the object, the data type of property is set, so that error checking can be carried</span>
-</span><span id="AbstractBehaviour-37"><a href="#AbstractBehaviour-37"><span class="linenos">37</span></a><span class="sd">        out.</span>
-</span><span id="AbstractBehaviour-38"><a href="#AbstractBehaviour-38"><span class="linenos">38</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractBehaviour-39"><a href="#AbstractBehaviour-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="AbstractBehaviour-28"><a href="#AbstractBehaviour-28"><span class="linenos">28</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="AbstractBehaviour-29"><a href="#AbstractBehaviour-29"><span class="linenos">29</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="AbstractBehaviour-30"><a href="#AbstractBehaviour-30"><span class="linenos">30</span></a><span class="sd">        each element in the list _properties will be of this structure:</span>
+</span><span id="AbstractBehaviour-31"><a href="#AbstractBehaviour-31"><span class="linenos">31</span></a><span class="sd">        {&#39;property_name&#39;: name,</span>
+</span><span id="AbstractBehaviour-32"><a href="#AbstractBehaviour-32"><span class="linenos">32</span></a><span class="sd">         &#39;data_types&#39;: [list of valid data types],</span>
+</span><span id="AbstractBehaviour-33"><a href="#AbstractBehaviour-33"><span class="linenos">33</span></a><span class="sd">         &#39;current_value&#39;: value,</span>
+</span><span id="AbstractBehaviour-34"><a href="#AbstractBehaviour-34"><span class="linenos">34</span></a><span class="sd">         &#39;data_validation&#39;: lambda expression}</span>
+</span><span id="AbstractBehaviour-35"><a href="#AbstractBehaviour-35"><span class="linenos">35</span></a>
+</span><span id="AbstractBehaviour-36"><a href="#AbstractBehaviour-36"><span class="linenos">36</span></a><span class="sd">        the &#39;data_validation&#39; property is optional but is used when validation is required</span>
+</span><span id="AbstractBehaviour-37"><a href="#AbstractBehaviour-37"><span class="linenos">37</span></a><span class="sd">        because on the creation of the object, the data type of property is set, so that error checking can be carried</span>
+</span><span id="AbstractBehaviour-38"><a href="#AbstractBehaviour-38"><span class="linenos">38</span></a><span class="sd">        out.</span>
+</span><span id="AbstractBehaviour-39"><a href="#AbstractBehaviour-39"><span class="linenos">39</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="AbstractBehaviour-40"><a href="#AbstractBehaviour-40"><span class="linenos">40</span></a>
 </span><span id="AbstractBehaviour-41"><a href="#AbstractBehaviour-41"><span class="linenos">41</span></a>    <span class="k">def</span> <span class="nf">get_behaviour_config_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 </span><span id="AbstractBehaviour-42"><a href="#AbstractBehaviour-42"><span class="linenos">42</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -690,47 +675,6 @@
 </div>
 
 
-                            <div id="AbstractBehaviour.__init__" class="classattr">
-                                        <input id="AbstractBehaviour.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-                    <div class="decorator">@abc.abstractmethod</div>
-
-        <span class="name">AbstractBehaviour</span><span class="signature pdoc-code condensed">()</span>
-
-                <label class="view-source-button" for="AbstractBehaviour.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#AbstractBehaviour.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="AbstractBehaviour.__init__-26"><a href="#AbstractBehaviour.__init__-26"><span class="linenos">26</span></a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-</span><span id="AbstractBehaviour.__init__-27"><a href="#AbstractBehaviour.__init__-27"><span class="linenos">27</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="AbstractBehaviour.__init__-28"><a href="#AbstractBehaviour.__init__-28"><span class="linenos">28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="AbstractBehaviour.__init__-29"><a href="#AbstractBehaviour.__init__-29"><span class="linenos">29</span></a><span class="sd">        each element in the list _properties will be of this structure:</span>
-</span><span id="AbstractBehaviour.__init__-30"><a href="#AbstractBehaviour.__init__-30"><span class="linenos">30</span></a><span class="sd">        {&#39;property_name&#39;: name,</span>
-</span><span id="AbstractBehaviour.__init__-31"><a href="#AbstractBehaviour.__init__-31"><span class="linenos">31</span></a><span class="sd">         &#39;data_types&#39;: [list of valid data types],</span>
-</span><span id="AbstractBehaviour.__init__-32"><a href="#AbstractBehaviour.__init__-32"><span class="linenos">32</span></a><span class="sd">         &#39;current_value&#39;: value,</span>
-</span><span id="AbstractBehaviour.__init__-33"><a href="#AbstractBehaviour.__init__-33"><span class="linenos">33</span></a><span class="sd">         &#39;data_validation&#39;: lambda expression}</span>
-</span><span id="AbstractBehaviour.__init__-34"><a href="#AbstractBehaviour.__init__-34"><span class="linenos">34</span></a>
-</span><span id="AbstractBehaviour.__init__-35"><a href="#AbstractBehaviour.__init__-35"><span class="linenos">35</span></a><span class="sd">        the &#39;data_validation&#39; property is optional but is used when validation is required</span>
-</span><span id="AbstractBehaviour.__init__-36"><a href="#AbstractBehaviour.__init__-36"><span class="linenos">36</span></a><span class="sd">        because on the creation of the object, the data type of property is set, so that error checking can be carried</span>
-</span><span id="AbstractBehaviour.__init__-37"><a href="#AbstractBehaviour.__init__-37"><span class="linenos">37</span></a><span class="sd">        out.</span>
-</span><span id="AbstractBehaviour.__init__-38"><a href="#AbstractBehaviour.__init__-38"><span class="linenos">38</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="AbstractBehaviour.__init__-39"><a href="#AbstractBehaviour.__init__-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
-
-                            </div>
                             <div id="AbstractBehaviour.get_behaviour_config_properties" class="classattr">
                                         <input id="AbstractBehaviour.get_behaviour_config_properties-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
@@ -941,17 +885,7 @@ to build the behaviour.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
+    
 
                             </div>
                             <div id="KeyPress.build" class="classattr">
@@ -1066,17 +1000,7 @@ out.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
+    
 
                             </div>
                             <div id="MomentaryLayer.build" class="classattr">
@@ -1195,17 +1119,7 @@ out.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
+    
 
                             </div>
                             <div id="LayerTap.build" class="classattr">
@@ -1320,17 +1234,7 @@ out.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
+    
 
                             </div>
                             <div id="ToggleLayer.build" class="classattr">
@@ -1418,36 +1322,6 @@ out.</p>
 </div>
 
 
-                            <div id="Transparent.__init__" class="classattr">
-                                        <input id="Transparent.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">Transparent</span><span class="signature pdoc-code condensed">()</span>
-
-                <label class="view-source-button" for="Transparent.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#Transparent.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Transparent.__init__-236"><a href="#Transparent.__init__-236"><span class="linenos">236</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="Transparent.__init__-237"><a href="#Transparent.__init__-237"><span class="linenos">237</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Transparent.__init__-238"><a href="#Transparent.__init__-238"><span class="linenos">238</span></a>        <span class="c1"># creates the properties for this behaviour</span>
-</span><span id="Transparent.__init__-239"><a href="#Transparent.__init__-239"><span class="linenos">239</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
-
-                            </div>
                             <div id="Transparent.build" class="classattr">
                                         <input id="Transparent.build-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
@@ -1530,36 +1404,6 @@ out.</p>
 </div>
 
 
-                            <div id="NoneBehaviour.__init__" class="classattr">
-                                        <input id="NoneBehaviour.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">NoneBehaviour</span><span class="signature pdoc-code condensed">()</span>
-
-                <label class="view-source-button" for="NoneBehaviour.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#NoneBehaviour.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="NoneBehaviour.__init__-261"><a href="#NoneBehaviour.__init__-261"><span class="linenos">261</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="NoneBehaviour.__init__-262"><a href="#NoneBehaviour.__init__-262"><span class="linenos">262</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="NoneBehaviour.__init__-263"><a href="#NoneBehaviour.__init__-263"><span class="linenos">263</span></a>        <span class="c1"># creates the properties for this behaviour</span>
-</span><span id="NoneBehaviour.__init__-264"><a href="#NoneBehaviour.__init__-264"><span class="linenos">264</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
-
-                            </div>
                             <div id="NoneBehaviour.build" class="classattr">
                                         <input id="NoneBehaviour.build-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
@@ -1642,36 +1486,6 @@ out.</p>
 </div>
 
 
-                            <div id="Reset.__init__" class="classattr">
-                                        <input id="Reset.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">Reset</span><span class="signature pdoc-code condensed">()</span>
-
-                <label class="view-source-button" for="Reset.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#Reset.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Reset.__init__-286"><a href="#Reset.__init__-286"><span class="linenos">286</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="Reset.__init__-287"><a href="#Reset.__init__-287"><span class="linenos">287</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="Reset.__init__-288"><a href="#Reset.__init__-288"><span class="linenos">288</span></a>        <span class="c1"># creates the properties for this behaviour</span>
-</span><span id="Reset.__init__-289"><a href="#Reset.__init__-289"><span class="linenos">289</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
-
-                            </div>
                             <div id="Reset.build" class="classattr">
                                         <input id="Reset.build-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
@@ -1754,36 +1568,6 @@ out.</p>
 </div>
 
 
-                            <div id="BootloaderReset.__init__" class="classattr">
-                                        <input id="BootloaderReset.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">BootloaderReset</span><span class="signature pdoc-code condensed">()</span>
-
-                <label class="view-source-button" for="BootloaderReset.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#BootloaderReset.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="BootloaderReset.__init__-311"><a href="#BootloaderReset.__init__-311"><span class="linenos">311</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="BootloaderReset.__init__-312"><a href="#BootloaderReset.__init__-312"><span class="linenos">312</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="BootloaderReset.__init__-313"><a href="#BootloaderReset.__init__-313"><span class="linenos">313</span></a>        <span class="c1"># creates the properties for this behaviour</span>
-</span><span id="BootloaderReset.__init__-314"><a href="#BootloaderReset.__init__-314"><span class="linenos">314</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">[]</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
-
-                            </div>
                             <div id="BootloaderReset.build" class="classattr">
                                         <input id="BootloaderReset.build-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
@@ -1894,17 +1678,7 @@ out.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
+    
 
                             </div>
                             <div id="Bluetooth.build" class="classattr">
@@ -2021,17 +1795,7 @@ out.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>each element in the list _properties will be of this structure:
-{'property_name': name,
- 'data_types': [list of valid data types],
- 'current_value': value,
- 'data_validation': lambda expression}</p>
-
-<p>the 'data_validation' property is optional but is used when validation is required
-because on the creation of the object, the data type of property is set, so that error checking can be carried
-out.</p>
-</div>
-
+    
 
                             </div>
                             <div id="OutputSelection.build" class="classattr">
