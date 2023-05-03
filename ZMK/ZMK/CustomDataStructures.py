@@ -72,6 +72,10 @@ class Array:
         """__getitem__"""
         return self.__array[key]
 
+    def __eq__(self, other):
+        """__eq__"""
+        return self.__array == other
+
     def __iter__(self):
         """__iter__"""
         return self.__array.__iter__()
