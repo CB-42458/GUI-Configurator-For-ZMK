@@ -78,8 +78,8 @@ functions    </h1>
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="sd">    Adds two vectors together A + B</span>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively  </span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively  </span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">    @return: The result of A + B as a tuple</span>
 </span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="k">return</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -89,8 +89,8 @@ functions    </h1>
 </span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="sd">    Subtracts two vectors A - B</span>
 </span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively  </span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively  </span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">    @return: The result of A - B as a tuple</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="k">return</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -100,7 +100,7 @@ functions    </h1>
 </span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a><span class="sd">    Calculates the magnitude of a vector</span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="sd">    @param vector: A tuple containing two numbers of the x and y components of the vector respectively</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="sd">    @param vector: A tuple containing two numbers of the x and y components of the vector respectively  </span>
 </span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="sd">    @return The magnitude of the vector</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="k">return</span> <span class="p">(</span><span class="n">vector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
@@ -110,7 +110,7 @@ functions    </h1>
 </span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">    Calculates the angle of a vector</span>
 </span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="sd">    @param pos_vector: A tuple containing two numbers of the x and y components of the vector respectively</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="sd">    @param pos_vector: A tuple containing two numbers of the x and y components of the vector respectively  </span>
 </span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="sd">    @return: Calculates the angle of a vector where 0 is up from -pi to pi and the angle increases clockwise</span>
 </span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>    <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">pos_vector</span><span class="p">:</span>
@@ -147,8 +147,8 @@ functions    </h1>
 </span><span id="add_vectors-13"><a href="#add_vectors-13"><span class="linenos">13</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="add_vectors-14"><a href="#add_vectors-14"><span class="linenos">14</span></a><span class="sd">    Adds two vectors together A + B</span>
 </span><span id="add_vectors-15"><a href="#add_vectors-15"><span class="linenos">15</span></a>
-</span><span id="add_vectors-16"><a href="#add_vectors-16"><span class="linenos">16</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively</span>
-</span><span id="add_vectors-17"><a href="#add_vectors-17"><span class="linenos">17</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively</span>
+</span><span id="add_vectors-16"><a href="#add_vectors-16"><span class="linenos">16</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively  </span>
+</span><span id="add_vectors-17"><a href="#add_vectors-17"><span class="linenos">17</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively  </span>
 </span><span id="add_vectors-18"><a href="#add_vectors-18"><span class="linenos">18</span></a><span class="sd">    @return: The result of A + B as a tuple</span>
 </span><span id="add_vectors-19"><a href="#add_vectors-19"><span class="linenos">19</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="add_vectors-20"><a href="#add_vectors-20"><span class="linenos">20</span></a>    <span class="k">return</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -157,8 +157,8 @@ functions    </h1>
 
             <div class="docstring"><p>Adds two vectors together A + B</p>
 
-<p>@param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively
-@param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively
+<p>@param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively <br />
+@param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively <br />
 @return: The result of A + B as a tuple</p>
 </div>
 
@@ -179,8 +179,8 @@ functions    </h1>
 </span><span id="subtract_vectors-24"><a href="#subtract_vectors-24"><span class="linenos">24</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="subtract_vectors-25"><a href="#subtract_vectors-25"><span class="linenos">25</span></a><span class="sd">    Subtracts two vectors A - B</span>
 </span><span id="subtract_vectors-26"><a href="#subtract_vectors-26"><span class="linenos">26</span></a>
-</span><span id="subtract_vectors-27"><a href="#subtract_vectors-27"><span class="linenos">27</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively</span>
-</span><span id="subtract_vectors-28"><a href="#subtract_vectors-28"><span class="linenos">28</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively</span>
+</span><span id="subtract_vectors-27"><a href="#subtract_vectors-27"><span class="linenos">27</span></a><span class="sd">    @param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively  </span>
+</span><span id="subtract_vectors-28"><a href="#subtract_vectors-28"><span class="linenos">28</span></a><span class="sd">    @param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively  </span>
 </span><span id="subtract_vectors-29"><a href="#subtract_vectors-29"><span class="linenos">29</span></a><span class="sd">    @return: The result of A - B as a tuple</span>
 </span><span id="subtract_vectors-30"><a href="#subtract_vectors-30"><span class="linenos">30</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="subtract_vectors-31"><a href="#subtract_vectors-31"><span class="linenos">31</span></a>    <span class="k">return</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -189,8 +189,8 @@ functions    </h1>
 
             <div class="docstring"><p>Subtracts two vectors A - B</p>
 
-<p>@param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively
-@param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively
+<p>@param vector_a: A tuple containing two numbers of the x and y components of the A vector respectively <br />
+@param vector_b: A tuple containing two numbers of the x and y components of the B vector respectively <br />
 @return: The result of A - B as a tuple</p>
 </div>
 
@@ -211,7 +211,7 @@ functions    </h1>
 </span><span id="calculate_angle-45"><a href="#calculate_angle-45"><span class="linenos">45</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="calculate_angle-46"><a href="#calculate_angle-46"><span class="linenos">46</span></a><span class="sd">    Calculates the angle of a vector</span>
 </span><span id="calculate_angle-47"><a href="#calculate_angle-47"><span class="linenos">47</span></a>
-</span><span id="calculate_angle-48"><a href="#calculate_angle-48"><span class="linenos">48</span></a><span class="sd">    @param pos_vector: A tuple containing two numbers of the x and y components of the vector respectively</span>
+</span><span id="calculate_angle-48"><a href="#calculate_angle-48"><span class="linenos">48</span></a><span class="sd">    @param pos_vector: A tuple containing two numbers of the x and y components of the vector respectively  </span>
 </span><span id="calculate_angle-49"><a href="#calculate_angle-49"><span class="linenos">49</span></a><span class="sd">    @return: Calculates the angle of a vector where 0 is up from -pi to pi and the angle increases clockwise</span>
 </span><span id="calculate_angle-50"><a href="#calculate_angle-50"><span class="linenos">50</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="calculate_angle-51"><a href="#calculate_angle-51"><span class="linenos">51</span></a>    <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">pos_vector</span><span class="p">:</span>
@@ -234,7 +234,7 @@ functions    </h1>
 
             <div class="docstring"><p>Calculates the angle of a vector</p>
 
-<p>@param pos_vector: A tuple containing two numbers of the x and y components of the vector respectively
+<p>@param pos_vector: A tuple containing two numbers of the x and y components of the vector respectively <br />
 @return: Calculates the angle of a vector where 0 is up from -pi to pi and the angle increases clockwise</p>
 </div>
 
