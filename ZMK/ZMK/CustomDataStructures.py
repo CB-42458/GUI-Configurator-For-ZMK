@@ -12,20 +12,25 @@ class Array:
     """
 
     def __init__(self, *args):
-        """__init__"""
-        # method allows for the array to be initialized with a list if the first parameter is a list
+        """
+        Constructor for the Array class.  
+        The method allows for the array to be initialized with a list if the first parameter is a list.  
+        
+        **Attributes**
+        `self.__array` - array which will store the values of the array
+        
+        `self.__length` - length attribute is used to keep track of the length of the array so that the len() method
+        does not have to used as often, I would like to bet this is redundant and that python does this, but I'm not
+        sure, you know what I'll test that out right now. The len method seems to have a time complexity of O(1) which
+        is what I suspected, so this attribute is redundant, but hey at least I thought of it, right?
+        """
         if len(args) and isinstance(args[0], list):
             self.__array = args[0]
             self.__length = len(args[0])
             return
 
         self.__array = []
-        """array which will store the values of the array"""
         self.__length = 0
-        """length attribute is used to keep track of the length of the array so that the len() method does not have to
-        used as often, I would like to bet this is redundant and that python does this but I'm not sure, you
-        know what I'll test that out right now. The len method seems to have a time complexity of O(1) which is what I
-        suspected, so this attribute is redundant, but hey at least I thought of it, right?"""
 
     def append(self, item):
         """append"""

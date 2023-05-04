@@ -19,23 +19,25 @@ from ListUnion import list_union
 
 class AbstractBehaviour:
     """
-    Class Behaviour will be an abstract class allowing for a specific behaviour and its properties to be implemented
+    Class Behaviour is an abstract class allowing for a specific behaviour and its properties to be implemented
     """
 
     @abc.abstractmethod
     def __init__(self):
-        self._properties: list = []
         """
+        Constructor for the class Behaviour  
+        the `self._properties attribute` is a list of dictionaries containing the properties of the behaviour.  
         each element in the list _properties will be of this structure:
+        ```python
         {'property_name': name,
          'data_types': [list of valid data types],
          'current_value': value,
          'data_validation': lambda expression}
-
-        the 'data_validation' property is optional but is used when validation is required
-        because on the creation of the object, the data type of property is set, so that error checking can be carried
-        out.
+        ```
+        the `'data_validation'` key is optional but is used when validation is required because on the creation of
+        the object, the data type of property is set, so that error checking can be carried out.
         """
+        self._properties: list = []
 
     def get_behaviour_config_properties(self) -> list:
         """
@@ -47,11 +49,11 @@ class AbstractBehaviour:
 
     def set_config_property(self, property_name: str, value: any) -> None:
         """
-        This method is used for all behaviours to set the value of the protected property '_properties'
-        This method has standard error and type checking as each behaviour will have a different set of properties
+        This method is used for all behaviours to set the value of the protected property '_properties'  
+        This method has standard error and type checking as each behaviour will have a different set of properties  
         refer to __init__ for the structure of the array.
 
-        @param property_name: name of the property to be set
+        @param property_name: name of the property to be set  
         @param value: value to be set
         """
         property_found = False
@@ -74,7 +76,7 @@ class AbstractBehaviour:
     @abc.abstractmethod
     def build(self) -> dict:
         """
-        Method will return strings as a dictionary containing the necessary bits of code at the right parts of the code
+        Method returns strings as a dictionary containing the necessary bits of code at the right parts of the code
         to build the behaviour.
         """
         pass
@@ -85,7 +87,7 @@ class AbstractBehaviour:
 
     def export(self) -> dict:
         """
-        Method will return a dictionary containing the properties of the behaviour
+        Method returns a dictionary containing the properties of the behaviour
         """
         properties_list = []
         for property_dict in self._properties:
@@ -98,12 +100,13 @@ class AbstractBehaviour:
 
 class KeyPress(AbstractBehaviour):
     """
-    Class KeyPress will be a child of Behaviour and will implement the behaviour of a key press
+    Class KeyPress is a child of Behaviour and implements the behaviour of a key press
+    
+    The Key press allows a FunctionModifier or KeyCode to be passed as the binding
     """
 
     def __init__(self, binding: any = None):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties: list = [
             {'property_name': 'binding',
              'data_types'   : [KeyCode, FunctionModifier],
@@ -133,12 +136,13 @@ class KeyPress(AbstractBehaviour):
 
 class MomentaryLayer(AbstractBehaviour):
     """
-    Class MomentaryLayer will be a child of Behaviour and will implement the behaviour of a momentary layer
+    Class MomentaryLayer is a child of Behaviour and implements the behaviour of a momentary layer
+    
+    The MomentaryLayer allows an integer to be passed as the layer, which must be greater than or equal to 0
     """
 
     def __init__(self, layer: int = None):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = [
             {'property_name': 'layer', 'data_types': [int], 'current_value': layer, 'data_validation': lambda x: x >= 0}
         ]
@@ -164,12 +168,14 @@ class MomentaryLayer(AbstractBehaviour):
 
 class LayerTap(AbstractBehaviour):
     """
-    Class LayerTap will be a child of Behaviour and will implement the behaviour of a 'layer tap'
+    Class LayerTap is a child of Behaviour and implements the behaviour of a 'layer tap'
+    
+    The LayerTap allows an integer to be passed as the layer, which must be greater than or equal to 0, and a
+    FunctionModifier or KeyCode to be passed as the binding.
     """
 
     def __init__(self, layer: int = None, binding: any = None):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = [
             {'property_name': 'layer', 'data_types': [int], 'current_value': None, 'data_validation': lambda x: x >= 0},
             {'property_name': 'binding', 'data_types': [KeyCode, FunctionModifier], 'current_value': None}
@@ -198,7 +204,9 @@ class LayerTap(AbstractBehaviour):
 
 class ToggleLayer(AbstractBehaviour):
     """
-    Class ToggleLayer will be a child of Behaviour and will implement the behaviour of a 'toggle layer'
+    Class ToggleLayer iss a child of Behaviour and implements the behaviour of a 'toggle layer'
+    
+    The ToggleLayer allows an integer to be passed as the layer, which must be greater than or equal to 0
     """
 
     def __init__(self, layer: int = None):
@@ -229,12 +237,13 @@ class ToggleLayer(AbstractBehaviour):
 
 class Transparent(AbstractBehaviour):
     """
-    Class Transparent will be a child of Behaviour and will implement the behaviour of '&trans'
+    Class Transparent is a child of Behaviour and implements the behaviour of '&trans'
+    
+    The Transparent behaviour has no properties
     """
 
     def __init__(self):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = []
 
     def build(self) -> dict:
@@ -254,12 +263,13 @@ class Transparent(AbstractBehaviour):
 
 class NoneBehaviour(AbstractBehaviour):
     """
-    Class NoneBehaviour will be a child of Behaviour and will implement the behaviour of '&none'
+    Class NoneBehaviour is a child of Behaviour and implements the behaviour of '&none'
+    
+    The NoneBehaviour behaviour has no properties
     """
 
     def __init__(self):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = []
 
     def build(self) -> dict:
@@ -279,12 +289,13 @@ class NoneBehaviour(AbstractBehaviour):
 
 class Reset(AbstractBehaviour):
     """
-    Class Reset will be a child of Behaviour and will implement the behaviour of '&reset'
+    Class Reset is a child of Behaviour and implements the behaviour of '&reset'
+    
+    The Reset behaviour has no properties
     """
 
     def __init__(self):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = []
 
     def build(self) -> dict:
@@ -304,12 +315,13 @@ class Reset(AbstractBehaviour):
 
 class BootloaderReset(AbstractBehaviour):
     """
-    Class BootloaderReset will be a child of Behaviour and will implement the behaviour of '&bootloader'
+    Class BootloaderReset is a child of Behaviour and implements the behaviour of '&bootloader'
+    
+    The BootloaderReset behaviour has no properties
     """
 
     def __init__(self):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = []
 
     def build(self) -> dict:
@@ -329,12 +341,13 @@ class BootloaderReset(AbstractBehaviour):
 
 class Bluetooth(AbstractBehaviour):
     """
-    Class Bluetooth will be a child of Behaviour and will implement the behaviour of a '&bt'
+    Class Bluetooth is a child of Behaviour and implements the behaviour of a '&bt'
+    
+    The Bluetooth behaviour allows a BluetoothKeyCode to be passed as the binding
     """
 
     def __init__(self, binding: BluetoothKeyCode = None):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = [
             {'property_name': 'binding', 'data_types': [BluetoothKeyCode], 'current_value': None},
         ]
@@ -362,12 +375,13 @@ class Bluetooth(AbstractBehaviour):
 
 class OutputSelection(AbstractBehaviour):
     """
-    Class OutputSelection will be a child of Behaviour and will implement the behaviour of a 'output selection'
+    Class OutputSelection is a child of Behaviour and implements the behaviour of a 'output selection'
+    
+    The OutputSelection allows an OutputKeyCode to be passed as the binding
     """
 
     def __init__(self, binding: OutputKeyCode = None):
         super().__init__()
-        # creates the properties for this behaviour
         self._properties = [
             {'property_name': 'binding', 'data_types': [OutputKeyCode], 'current_value': None},
         ]
@@ -390,8 +404,3 @@ class OutputSelection(AbstractBehaviour):
 
     def __str__(self):
         return f"OutputSelection({self._properties[0]['current_value']})"
-
-
-# main tests the methods of the classes
-if __name__ == '__main__':
-    pass

@@ -27,35 +27,61 @@ class ZMKConfig:
 
     # noinspection PyUnusedLocal
     def __init__(self, **kwargs):
+        """
+        Constructor for the ZMKConfig class creates all the attributes which are used in a ZMK configuration.
+        
+        **Class Attributes**  
+        `__config_name` : str | None - Name of the keyboard configuration
+        
+        `__config_id` : str | None - ID of the keyboard configuration, used by ZMK to identify the keyboard
+        
+        `__shield_directory` : str | None - Directory of the shield used by the keyboard found in the app/boards/shields
+        directory of the ZMK repo
+        
+        `__working_directory` : str | None - Directory where the configuration will be saved locally
+        
+        `__features` : list[Features.AbstractFeature] - Features that the keyboard will have, such as rotary encoder,
+        RGB under-glow, etc.
+        
+        `__mcu` : MCUs.AbstractMCU | None - MCU that the keyboard will use
+        
+        `__default_config_options` : list - Default configuration options that will be used by the keyboard, outputted
+        in the .defconfig file
+        
+        `__config_options` : list - Configuration options that will be used by the keyboard, outputted in the .conf
+        file
+        
+        `__driver` : Drivers.AbstractDriver | None - Driver that the keyboard will use such as a matrix driver, demux
+        driver, etc.
+        
+        `__split_config` : bool - Boolean value which represents if the keyboard is a split keyboard or not
+        
+        `__split_config_options` : TypedDict('__split_config_options', {'central': list, 'peripheral': list}) -
+        Configuration options for the respected halves of the split keyboard
+        
+        `__behaviours` : list[Behaviours.AbstractBehaviour] - List will store behaviors which are unique configurations
+        of a behaviour such as a tap dance
+        
+        `__keymap` : CusDataStruc.Array - Array which will store behaviours for the keymap
+        
+        `__transform` : Transform.MatrixTransform | None - Transform which is used to translate the physical layout of
+        the keyboard to the logical layout
+        """
         self.__config_name: str | None = None
-        """Name of the keyboard configuration"""
         self.__config_id: str | None = None
-        """ID of the keyboard configuration, used by ZMK to identify the keyboard"""
         self.__shield_directory: str | None = None
-        """Directory of the shield used by the keyboard found in the app/boards/shields directory of the ZMK repo"""
         self.__working_directory: str | None = None
-        """Directory where the configuration will be saved locally"""
         self.__features: list[Features.AbstractFeature] = []
-        """Features that the keyboard will have, such as rotary encoder, RGB under-glow, etc."""
         self.__mcu: MCUs.AbstractMCU | None = None
-        """MCU that the keyboard will use"""
         self.__default_config_options: list = []
-        """Default configuration options that will be used by the keyboard, outputted in the .defconfig file"""
         self.__config_options: list = []
-        """Configuration options that will be used by the keyboard, outputted in the .conf file"""
         self.__driver: Drivers.AbstractDriver | None = None
-        """Driver that the keyboard will use such as a matrix driver, demux driver, etc."""
         self.__split_config: bool = False
-        """Boolean value which represents if the keyboard is a split keyboard or not"""
         self.__split_config_options: TypedDict('__split_config_options', {'central': list, 'peripheral': list}) = \
             {'central': [], 'peripheral': []}
-        """Configuration options for the respected halves of the split keyboard"""
         self.__behaviours: list[Behaviours.AbstractBehaviour] = []
-        """List will store behaviors which are unique configurations of a behaviour such as a tap dance"""
         self.__keymap: CusDataStruc.Array = CusDataStruc.Array([None])
-        """Array which will store behaviours for the keymap"""
         self.__transform: Transform.MatrixTransform | None = Transform.MatrixTransform()
-        """Transform which is used to translate the physical layout of the keyboard to the logical layout"""
 
     def load_config(self, file_path: str) -> None:
         """
@@ -70,7 +96,7 @@ class ZMKConfig:
         Method will save the configuration to a json file. If overwrite is not True and the file already exists then
         a FileExistsError will be raised.
 
-        @param file_path: Path to the file where the configuration will be saved
+        @param file_path: Path to the file where the configuration will be saved  
         @param overwrite: If True then file it will overwrite
         """
         if path.isfile(file_path) and not overwrite:
@@ -183,17 +209,17 @@ class ZMKConfig:
 
     def set_transform(self, transform: Transform.MatrixTransform) -> None:
         """
-        Method for setting the transform
-        for now the MatrixTransform is the only transform that is available which is why the type hints are not
-        part of an abstract class
+        Method for setting the transform.  
+        for now the MatrixTransform is the only transform that is available which is why the type hints are not part of
+        an abstract class
         """
         self.__transform = transform
 
     def get_transform(self) -> Transform.MatrixTransform:
         """
-        Method for getting the transform:
-        for now the MatrixTransform is the only transform that is available which is why the type hints are not
-        part of an abstract class
+        Method for getting the transform.  
+        for now the MatrixTransform is the only transform that is available which is why the type hints are not part of
+        an abstract class
         """
         return self.__transform
 
@@ -203,7 +229,7 @@ class ZMKConfig:
 
     def set_keymap(self, keymap: CusDataStruc.Array) -> None:
         """
-        Method for setting the keymap:
+        Method for setting the keymap.
 
         @param keymap: List of behaviours which are used to define the keymap
         """
@@ -218,7 +244,7 @@ class ZMKConfig:
 
     def get_keymap(self) -> CusDataStruc.Array:
         """
-        Method for getting the keymap
+        Method for getting the keymap.
 
         @return: List of behaviours which are used to define the keymap
         """
@@ -226,16 +252,16 @@ class ZMKConfig:
 
     def modify_key_binding(self, index: int, key_binding: classmethod) -> None:
         """
-        Method for modifying a key binding:
+        Method for modifying a key binding.
 
-        @param index: Index of the behaviour in the keymap to be accessed
+        @param index: Index of the behaviour in the keymap to be accessed  
         @param key_binding: Behaviour which is modified in the keymap
         """
         self.__keymap[index] = key_binding
 
     def clear_key_binding(self, index: int) -> None:
         """
-        Method for clearing a key binding:
+        Method for clearing a key binding.
 
         @param index: Index of the behaviour in the keymap to be cleared
         """
@@ -287,9 +313,9 @@ class ZMKConfig:
 
     def add_split_config_option(self, side: str, option: ConfigOptions.AbstractConfigOption) -> None:
         """
-        Method for adding a split config option:
+        Method for adding a split config option.
 
-        @param side: String which is either 'Primary' or 'Secondary'
+        @param side: String which is either 'Primary' or 'Secondary'  
         @param option: ConfigOption which is added to the respected side
         """
         if side in self.__split_config_options.keys():
@@ -301,9 +327,9 @@ class ZMKConfig:
 
     def del_split_config_option(self, side: str, option: classmethod) -> None:
         """
-        Method for deleting a split config option:
+        Method for deleting a split config option.
 
-        @param side: String which is either 'Primary' or 'Secondary'
+        @param side: String which is either 'Primary' or 'Secondary'  
         @param option: ConfigOption which is deleted from the respected side
         """
         if side in self.__split_config_options:

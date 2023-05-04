@@ -21,7 +21,9 @@ class RowCol:
     Class RowCol represents a row and a column
     """
     row: int
+    """store for the row of a key"""
     col: int
+    """store for the column of a key"""
 
     def __eq__(self, other: RowCol) -> bool:
         """

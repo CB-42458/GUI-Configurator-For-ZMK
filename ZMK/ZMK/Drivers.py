@@ -24,14 +24,15 @@ class AbstractDriver:
     def __init__(self):
         """
         The _properties attribute is a list of dictionaries. Each dictionary will have the following structure:
+        ```python
         {
             'name': (string) name of the property,
             'types': (list) list of types that the property can be,
             'value': (any) current value of the property
         }
+        ```
         """
         self.__properties: list = []
-        """Refer to __init__ docstring"""
 
     @abc.abstractmethod
     def check_property(self, zmk_config: Config.ZMKConfig, property_name: str, value: any = None) -> bool:

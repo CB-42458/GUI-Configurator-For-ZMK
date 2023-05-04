@@ -92,6 +92,31 @@ class ProMicroInterconnect(AbstractInterconnect):
     """
 
     def __init__(self):
+        """
+        The GPIO map for the arduino pro micro interconnect. The table below shows the pin number and the corresponding
+        GPIO Name. This is implemented in the `self.__gpio_map` dictionary. Where the key is the pin number and the
+        GPIO names are a list of strings.  
+        | Pin Number | GPIO     |
+        |------------|----------|
+        | 0          | D0       |
+        | 1          | D1       |
+        | 2          | D2       |
+        | 3          | D3       |
+        | 4          | D4, A6   |
+        | 5          | D5       |
+        | 6          | D6, A7   |
+        | 7          | D7       |
+        | 8          | D8, A8   |
+        | 9          | D9, A9   |
+        | 10         | D10, A10 |
+        | 16         | D16      |
+        | 14         | D14      |
+        | 15         | D15      |
+        | 18         | D18, A0  |
+        | 19         | D19, A1  |
+        | 20         | D20, A2  |
+        | 21         | D21, A3  |
+        """
         super().__init__()
         self.__gpio_map = {
             0 : ['D0'],
@@ -121,6 +146,10 @@ class AbstractMCU:
     """
 
     def __init__(self):
+        """
+        The constructor for the abstract class creates an attribute called `__interconnect` which is an instance of
+        `AbstractInterconnect` or `None` if it has not been set yet.
+        """
         self.__interconnect: [AbstractInterconnect, None] = None
 
     def get_interconnect(self) -> AbstractInterconnect:
@@ -159,6 +188,10 @@ class NiceNanoV2(AbstractMCU):
     """
 
     def __init__(self):
+        """
+        The constructor for the nice nano v2 class:  
+        The Nice Nano uses the Pro Micro interconnect
+        """
         super().__init__()
         self.__interconnect = ProMicroInterconnect()
 

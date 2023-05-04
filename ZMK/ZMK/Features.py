@@ -23,7 +23,9 @@ class AbstractFeature:
         """
         Method will return a list of properties for the configuration,
         each element in the list will be of this structure:
+        ```python
         {'property_name': name, 'data_type': data_type, 'current_value': 'name'}
+        ```
         """
 
     def set_feature_config_property(self, property_name: str, value: any) -> None:

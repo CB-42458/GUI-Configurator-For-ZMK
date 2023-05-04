@@ -92,6 +92,13 @@ class AbstractCode:
 
     @abc.abstractmethod
     def __init__(self):
+        """
+        Constructor creates the following attributes, these attributes are populated by the child classes from the
+        JSON files:
+        - _name: name of the keycode (e.g. N1)
+        - _description: description of the keycode (e.g. "1 and !")
+        - _context: context of the keycode (e.g. "Keyboard")
+        """
         self._name = None
         self._description = None
         self._context = None
@@ -130,11 +137,13 @@ class AbstractCodeWithBinding(AbstractCode):
     """
     AbstractCodeWithBinding is an abstract class which will have a property attribute _binding which is a dictionary
     with the following structure:
+    ```python
     {'property_name': str,
      'data_types': list of classes,
      'current_value': value,
      'data_validation': lambda expression}
-    'data_validation' is optional
+    ```
+    `'data_validation'` is an optional attribute which uses a lambda expression to validate the data
     """
 
     @abc.abstractmethod

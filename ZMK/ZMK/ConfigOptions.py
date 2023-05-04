@@ -23,16 +23,16 @@ class AbstractConfigOption:
     @abc.abstractmethod
     def __init__(self, zmk_config: Config.ZMKConfig):
         """
-        self.__config_option is a dictionary containing the properties of the attribute. it will have this structure:
-
-        {
-            'name': (string) name of the property,
-            'types': (list) list of types the property can be,
-            'value': (any) current value of the property
-        }
-
         @param zmk_config: the ZMKConfig object is passed into so that it can be passed into the check_config_property
         method can check the value of the property against the config.
+        
+        `self.__config_option` is a dictionary containing the properties of the attribute. it will have this structure:
+        ```python
+        {'name' : (string) name of the property,
+         'types': (list) list of types the property can be,
+         'value': (any) current value of the property }
+        ```
+        
         """
         self.__config_option: dict = {
             'name' : '',

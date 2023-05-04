@@ -1,20 +1,16 @@
+# noinspection SpellCheckingInspection
 """
 Purpose of this program is to store a list of all the existing shields in the ZMK repository
 So that the Package can check if the name set by the user is already taken, this is to avoid
 conflicts with the shields already in the ZMK repository. as there will be conflicts if with
 the files that are already in the ZMK repository.
-"""
-__all__ = ['get_shields', 'is_name_taken', 'is_id_taken', 'is_directory_taken']
 
-from pkg_resources import resource_filename
-
-# noinspection SpellCheckingInspection
-"""
 module will contain a list of all the shields in the ZKM repository, I create a separate module for this
 because it is possible to implement a user can select a shield from a list of shields that are already
 in the ZMK repository. I will not be implementing this, but it could be a possibility in the future.
 
-# example list
+**Example List:**
+```python
 shields = [
     {"directory_name": "splitkb_aurora_lily58",
      "name": "splitkb.com Aurora Lily58",
@@ -23,7 +19,12 @@ shields = [
      "name": "2% Milk",
      "id": "two_percent_milk" }
 ]
+```
 """
+__all__ = ['get_shields', 'is_name_taken', 'is_id_taken', 'is_directory_taken']
+
+from pkg_resources import resource_filename
+
 __shields = []
 
 if not __shields:
