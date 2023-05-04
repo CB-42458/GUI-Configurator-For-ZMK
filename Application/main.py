@@ -38,10 +38,10 @@ SHOW_ON_PARENT_DEBUG = False
 
 def print_debug(*args, **kwargs):
     """
-    Function is used to print debug messages to the console
-
-    @param args: objects which can be converted to strings
-    @param kwargs: keyword arguments
+    Function is used to print debug messages to the console  
+    
+    @param args: objects which can be converted to strings  
+    @param kwargs: keyword arguments  
     """
     if "info" in kwargs:
         if kwargs["info"] == "ON PARENT" and not SHOW_ON_PARENT_DEBUG:
@@ -58,12 +58,11 @@ def print_debug(*args, **kwargs):
 
 def select_directory_dialog(prompt: str = "Select a directory") -> str:
     """
-    uses the wxPython library to use the file explorer dialog to select a directory
-
-    @param prompt: prompt which is displayed at the top of the dialog
-    @return: a string to the path
-
+    uses the wxPython library to use the file explorer dialog to select a directory  
     used https://docs.wxpython.org/wx.DirDialog.html for reference
+    
+    @param prompt: prompt which is displayed at the top of the dialog  
+    @return: a string to the path
     """
     # noinspection PyUnusedLocal
     app = wx.App()
@@ -78,11 +77,11 @@ def select_directory_dialog(prompt: str = "Select a directory") -> str:
 
 def select_file_dialog(prompt: str = "Select a file", wildcard: str = "") -> str:
     """
-    uses the wxPython library to use the file explorer dialog to select a file
-    used https://docs.wxpython.org/wx.FileDialog.html for reference
-
-    @param prompt: prompt which is displayed at the top of the dialog
-    @param wildcard: wildcard parameter is used to filter which files are shown and accepted
+    uses the wxPython library to use the file explorer dialog to select a file  
+    used https://docs.wxpython.org/wx.FileDialog.html for reference  
+    
+    @param prompt: prompt which is displayed at the top of the dialog  
+    @param wildcard: wildcard parameter is used to filter which files are shown and accepted  
     @return: a string to the path
     """
     # noinspection PyUnusedLocal
@@ -97,10 +96,10 @@ def select_file_dialog(prompt: str = "Select a file", wildcard: str = "") -> str
 def find_id(parent: Widget, widget: Widget) -> str:
     """
     function finds the id of the widget in the parent widget's ids dictionary
-
-    @param parent: the parent widget
-    @param widget: widget to find the id of
-    @return: the id of the widget in the ids of the parent widget
+    
+    @param parent: the parent widget  
+    @param widget: widget to find the id of  
+    @return: the id of the widget in the ids of the parent widget  
     @deprecated: this function is planned to be removed
     """
     for key, value in parent.ids.items():
@@ -124,7 +123,7 @@ class MCUSelectionScreen(Screen):
 
         def __init__(self, mcu_class: ZMK.MCUs.AbstractMCU, **kwargs):
             """
-            @param mcu_class: the class of the MCU
+            @param mcu_class: the class of the MCU  
             @param kwargs: keyword arguments
             """
             super().__init__(**kwargs)
@@ -167,7 +166,7 @@ class MCUSelectionScreen(Screen):
         """
         on_parent is called when this widget is added to a parent widget
 
-        @param widget: self
+        @param widget: self  
         @param parent: parent widget, ScreenManager
         """
         print_debug(f"{self.__class__.__name__}: {widget} {parent}", info="ON PARENT")
@@ -188,13 +187,13 @@ class PropertiesScreen(Screen):
     """
     Properties screen manages the main properties of the ZMK config
     such as:
-        - working directory
-        - keyboard name
-        - layout from the keyboard layout editor json file
-        - the microcontroller unit
-        - whether the keyboard is a split keyboard and which side is the main side
-        - number of paired and simultaneous connections
-        - whether rotary encoders are used and if so how many
+    - working directory
+    - keyboard name
+    - layout from the keyboard layout editor json file
+    - the microcontroller unit
+    - whether the keyboard is a split keyboard and which side is the main side
+    - number of paired and simultaneous connections
+    - whether rotary encoders are used and if so how many
     """
 
     def __init__(self, **kwargs):
@@ -207,7 +206,7 @@ class PropertiesScreen(Screen):
         """
         on_parent is called when this widget is added to a parent widget
 
-        @param widget: self
+        @param widget: self  
         @param parent: parent widget, ScreenManager
         """
         print_debug(f"{self.__class__.__name__}: {widget} {parent}", info="ON PARENT")
@@ -458,6 +457,8 @@ class PropertiesScreen(Screen):
     def on_select_working_directory(self, button: Button):
         """
         callback for when the select working directory button is pressed
+        
+        @param button: the button that was pressed presumably the select working directory button
         """
         main_window: MainWindow = App.get_running_app().root
         directory_path = select_directory_dialog(
@@ -488,6 +489,9 @@ class PropertiesScreen(Screen):
         """
         Callback for when the text input for the config name is focused or unfocused, if it is unfocused it is assumed
         that the user has finished with the text input. so the method will attempt to set the config name.
+        
+        @param text_input: the text input widget which called the method  
+        @param focus: True if the text input is focused, False if it is unfocused
         """
         if focus:
             return
@@ -513,6 +517,9 @@ class PropertiesScreen(Screen):
         """
         Callback for when the text input for the config id is focused or unfocused, if it is unfocused it is assumed
         that the user has finished with the text input. so the method will attempt to set the config id.
+        
+        @param text_input: the text input widget which called the method  
+        @param focus: True if the text input is focused, False if it is unfocused
         """
         if focus:
             return
@@ -537,6 +544,9 @@ class PropertiesScreen(Screen):
         """
         Callback for when the text input for the shield directory is focused or unfocused, if it is unfocused it is
         assumed that the user has finished with the text input. so the method will attempt to set the shield directory.
+        
+        @param text_input: the text input widget which called the method  
+        @param focus: True if the text input is focused, False if it is unfocused
         """
         if focus:
             return
@@ -561,6 +571,8 @@ class PropertiesScreen(Screen):
     def on_select_json_file(self, button: Button):
         """
         callback for when the select json file button is pressed
+        
+        @param button: the button widget which called the method presumably the select json file button
         """
         main_window: MainWindow = App.get_running_app().root
         json_file_path = select_file_dialog("Select JSON File, file that contains the keyboard layout",
@@ -582,8 +594,10 @@ class PropertiesScreen(Screen):
 
     def update_json_file_path(self, json_file_path: str = None):
         """
-        updates the json file path, if no file path is passed then it will attempt to get the file path from the main
-        window
+        updates the json file path
+        
+        @param json_file_path: if None is passed (no path) then it will attempt to get the path from the main window and
+        if that is None then it will set the text to "No JSON File Selected"
         """
         main_window: MainWindow = App.get_running_app().root
         if main_window is None:
@@ -596,6 +610,8 @@ class PropertiesScreen(Screen):
     def on_select_mcu_button(button: Button):
         """
         method changes the screen manager's screen to the MCU selection screen
+        
+        @param button: the button widget which called the method presumably one of the mcu buttons
         """
         main_window: MainWindow = App.get_running_app().root
         main_window.screen_manager.current = "MCU Selection"
@@ -603,7 +619,10 @@ class PropertiesScreen(Screen):
     # noinspection PyUnusedLocal
     def update_mcu_text(self, mcu: str = None):
         """
-        updates the mcu text. if no mcu is passed then it will attempt to get the mcu from the main window
+        updates the mcu text.
+        
+        @param mcu: the mcu to set the text to, if None is passed then it will attempt to get the mcu from the main
+        window and if that is None then it will set the text to "No MCU Selected"
         """
         main_window: MainWindow = App.get_running_app().root
         if main_window is None:
@@ -614,6 +633,9 @@ class PropertiesScreen(Screen):
     def split_config_text_callback(self, toggle_button: ToggleButton):
         """
         Flipflops the text on the button for enabling the split keyboard between "Yes" and "No"
+        
+        @param toggle_button: the toggle button widget which called the method presumably the enable split keyboard
+        toggle button
         """
         # used to enable or disable the split keyboard side toggle button
         split_keyboard_side = self.box_layout.ids["split keyboard side"]
@@ -630,6 +652,9 @@ class PropertiesScreen(Screen):
     def split_config_side_text_callback(toggle_button: ToggleButton):
         """
         Flipflops the text on the button for enabling the split keyboard between "Left" and "Right"
+        
+        @param toggle_button: the toggle button widget which called the method presumably the split keyboard side
+        toggle button
         """
         if toggle_button.disabled:
             toggle_button.text = "N/A"
@@ -638,19 +663,12 @@ class PropertiesScreen(Screen):
         else:
             toggle_button.text = "Left"
 
-    def split_config_side_enabled(self, toggle_button: ToggleButton):
-        """
-        Enables the button for selecting the side of the split keyboard
-        """
-        if toggle_button.state == "down":
-            self.box_layout.ids["split keyboard"].disabled = True
-        else:
-            self.box_layout.ids["split keyboard"].disabled = True
-        print_debug("method called: split config side enabled")
-
     def encoder_config_toggle_text_call_back(self, toggle_button: ToggleButton):
         """
         Flipflops the text on the toggle button between "Yes" and "No"
+        
+        @param toggle_button: the toggle button widget which called the method presumably the enable rotary encoders
+        toggle button
         """
         if toggle_button.state == "down":
             toggle_button.text = "Yes"
@@ -663,19 +681,14 @@ class PropertiesScreen(Screen):
     def split_keyboard_side_toggle_state_callback(toggle_button: ToggleButton):
         """
         Flipflops the text on the toggle button between "Left" and "Right"
+        
+        @param toggle_button: the toggle button widget which called the method presumably the split keyboard side
+        toggle button
         """
         if toggle_button.state == "down":
             toggle_button.text = "Right"
         else:
             toggle_button.text = "Left"
-
-    @staticmethod
-    def on_button_callback(button: Button):
-        """
-        on_button_callback is called when a button is pressed. This method is planned to be deprecated.
-        """
-        main_window: MainWindow = App.get_running_app().root
-        main_window.event_callback(button.method, value=button.state == "down")
 
     def on_text_intput_focus(self, text_input: TextInput, focus: bool) -> None:
         """
@@ -707,7 +720,11 @@ class KeyWidget(Scatter):
         key: pykle.Key = main_window.kle_json.keys[key_index]
         super().__init__(**kwargs)
         self.kivy_y = 0
+        """Attribute used to store the y position of the key in kivy coordinates,
+        so that the key can be rendered faster"""
         self.key_index = key_index
+        """Attribute used to store the index of the key in the kle data, which is also the same index in the ZMK config
+        object in the main window"""
         self.size_hint = (None, None)
         self.size = key.width * std.STD_KEY_UNIT, key.height * std.STD_KEY_UNIT
         self.do_translation = False
@@ -756,7 +773,7 @@ class KeyWidget(Scatter):
         on_height is called when the height of the window changes, this is used to update the position of the key to
         ensure that it stays at the top of the window
 
-        @param screen_manager: the screen manager which is bound to the event
+        @param screen_manager: the screen manager which is bound to the event  
         @param height: the new height of the screen_manager widget
         """
         self.y = height - self.kivy_y
@@ -795,22 +812,29 @@ class RowColumnScreen(Screen):
             # as integers and are updated when the text of the text inputs are changed if both text inputs are
             # integers then the row and column objects in the transform object of the zmk_config object are updated
             self.row: int | None = None
+            """Attribute used to store the row of the key as an integer"""
             self.row_input = TextInput(hint_text="R", input_filter="int", size_hint=(1, 1), multiline=False,
                                        halign="center")
-            self.column: int | None = None
+            """Stores the object of the row text input for faster and easier access"""
             self.row_input.bind(text=self.on_text)
+            
+            self.column: int | None = None
+            """Attribute used to store the column of the key as an integer"""
             self.col_input = TextInput(hint_text="C", input_filter="int", size_hint=(1, 1), multiline=False,
                                        halign="center")
+            """Stores the object of the column text input for faster and easier access"""
             self.col_input.bind(text=self.on_text)
+            
             box_layout.add_widget(self.row_input)
             box_layout.add_widget(self.col_input)
             self.add_widget(box_layout)
 
         def on_text(self, text_input: TextInput, value: str):
             """
-            Method is called when the text of the text input is changed
+            Method is called when the text of the text input is changed, with checks inplace it will attempt to set the
+            value of the row or column attribute to an integer value from the text input
 
-            @param text_input: widget which called the method
+            @param text_input: widget which called the method  
             @param value: the new text from the text input
             """
             # if the text input is empty then the value is set to None
@@ -852,7 +876,7 @@ class RowColumnScreen(Screen):
         """
         on_parent is called when this widget is added to a parent widget
 
-        @param widget: self
+        @param widget: self  
         @param parent: the parent widget, ScreenManager
         """
         print_debug(f"{self.__class__.__name__}: {widget} {parent}", info="ON PARENT")
@@ -876,14 +900,13 @@ class GpioScreen(Screen):
         super().__init__(**kwargs)
         self.float_layout = FloatLayout(size_hint=(1, 1))
         """Float layout is used as place holder for the widgets, a boxlayout or something similar will be used later"""
-        self.in_focus = False
         self.add_widget(self.float_layout)
 
     def on_parent(self, widget: GpioScreen, parent: ScreenManager):
         """
         on_parent is called when this widget is added to a parent widget
 
-        @param widget: self
+        @param widget: self  
         @param parent: the parent widget, ScreenManager
         """
         print_debug(f"{self.__class__.__name__}: {widget} {parent}", info="ON PARENT")
@@ -932,7 +955,6 @@ class KeymapScreen(Screen):
         super().__init__(**kwargs)
         self.float_layout = FloatLayout(size_hint=(1, 1))
         """Float layout is used for absolute positioning of KeyWidgets"""
-        self.in_focus = False
         self.add_widget(self.float_layout)
 
     def redraw_keymap(self):
@@ -954,14 +976,13 @@ class ExportScreen(Screen):
         super().__init__(**kwargs)
         self.box_layout = BoxLayout(size_hint=(1, 1), orientation="vertical", spacing=std.STD_SPACING)
         """Box layout will be used for to create a vertical list of widgets which will form a menu to export"""
-        self.in_focus = False
         self.add_widget(self.box_layout)
 
     def on_parent(self, widget: ExportScreen, parent: ScreenManager):
         """
         on_parent is called when this widget is added to a parent widget
 
-        @param widget: self
+        @param widget: self  
         @param parent: the parent widget, ScreenManager
         """
         print_debug(f"{self.__class__.__name__}: {widget} {parent}", info="ON PARENT")
@@ -982,14 +1003,13 @@ class SettingsScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.box_layout = BoxLayout(size_hint=(1, 1), orientation="vertical", spacing=std.STD_SPACING)
-        self.in_focus = False
         self.add_widget(self.box_layout)
 
     def on_parent(self, widget: SettingsScreen, parent: ScreenManager):
         """
         on_parent is called when this widget is added to a parent widget
 
-        @param widget: self
+        @param widget: self  
         @param parent: the parent widget, ScreenManager
         """
         print_debug(f"{self.__class__.__name__}: {widget} {parent}", info="ON PARENT")
@@ -1010,7 +1030,6 @@ class ConsoleScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.scroll_view = ScrollView(size_hint=(1, 1), do_scroll_x=False, do_scroll_y=True)
-        self.in_focus = False
         self.console_history = []
         self.label: [Label, None] = None
 
@@ -1018,7 +1037,7 @@ class ConsoleScreen(Screen):
         """
         on_parent is called when this widget is added to a parent widget
 
-        @param widget: self
+        @param widget: self  
         @param parent: the parent widget, ScreenManager
         """
         print_debug(f"{self.__class__.__name__}: {widget} {parent}", info="ON PARENT")
@@ -1036,7 +1055,7 @@ class ConsoleScreen(Screen):
         """
         label_setter sets the dynamic attributes of the label which is the console
 
-        @param size: texture size of the label
+        @param size: texture size of the label  
         @param label: the label widget
         """
         label.width = self.width
@@ -1187,6 +1206,7 @@ class MainWindow(BoxLayout):
         # this makes it easier to access the children of the screen manager
         # as otherwise you would have quite a nest of widgets
         self.screen_manager = ScreenManager(transition=NoTransition())
+        """Attribute is used to allow for fast access to the screen manager"""
         self.add_widget(self.screen_manager)
         self.screen_names = {
             "MCU Selection": MCUSelectionScreen,
@@ -1198,12 +1218,14 @@ class MainWindow(BoxLayout):
             "Settings"     : SettingsScreen,
             "Console"      : ConsoleScreen
         }
-        accessible_screen_names = ("Properties", "Row & Column", "GPIO", "Keymap", "Export")
+        """Dictionary is used to store the different screens, which is used for iterative purposes"""
+        self.accessible_screen_names = ("Properties", "Row & Column", "GPIO", "Keymap", "Export")
+        """Tuple stores screen names that are accessible from the navigation bar"""
         # adds the buttons for the different screens to the navigation bar
         # as well as the screen to the screen manager
         for screen_name in self.screen_names:
             # adds buttons for screen names that I want to be accessible in the navigation bar
-            if screen_name in accessible_screen_names:
+            if screen_name in self.accessible_screen_names:
                 button = Button(
                     text=screen_name,
                     font_size=std.STD_FONT_SIZE * 1.4,
@@ -1328,7 +1350,7 @@ class MainWindow(BoxLayout):
         Method is called by the children held within the layout of the screens within the screen manager, this is a
         callback method which is called when the user changes a value in the configuration
 
-        @param widget_id: key is id of the widget which has changed
+        @param widget_id: key is id of the widget which has changed  
         @param kwargs: a dictionary is used for potential arguments for methods that this method will call
         """
         # this method is deprecated
@@ -1343,7 +1365,9 @@ class Application(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.title = "ZMK GUI Configurator"
+        """Attribute sets the title of the application"""
         self.icon = "zmk_logo.svg"
+        """Attribute sets the icon of the application"""
 
     def build(self):
         """

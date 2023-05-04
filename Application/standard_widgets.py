@@ -30,7 +30,6 @@ class ConfigPropertyLabel(Label):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.size_hint_x = kwargs["size_hint_x"] if "size_hint_x" in kwargs else None
-        # self.width = kwargs["width"] if "width" in kwargs else metrics.dp(310)
         if "width" in kwargs:
             self.width = kwargs["width"]
         elif "size_hint_x" not in kwargs:
@@ -48,7 +47,7 @@ class ConfigPropertyToggle(ToggleButton):
 
     def __init__(self, on_state_text: str = "", off_state_text: str = "", **kwargs):
         """
-        @param on_state_text: If this is not set then it will be set to the default text of this class
+        @param on_state_text: If this is not set then it will be set to the default text of this class  
         @param off_state_text: If this is not set then it will be set to the default text of this class
         """
         super().__init__(**kwargs)
@@ -65,7 +64,7 @@ class ConfigPropertyToggle(ToggleButton):
         """
         Updates the text of the button when the state changes
 
-        @param instance: self
+        @param instance: self  
         @param state: The state of the button either "up" or "down"
         """
         if self.disabled:
