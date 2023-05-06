@@ -90,7 +90,7 @@ class MatrixTransform:
             'matrix_transform': self.__matrix.__list__()
         }
 
-    #
+    
     def export(self) -> dict:
         """
         Method returns a dictionary which represents the matrix transform, so that it can be exported to a json file.
@@ -99,7 +99,7 @@ class MatrixTransform:
             'matrix_transform': self.__matrix
         }
 
-    #
+    
     def __len__(self):
         """
         Length of the matrix
